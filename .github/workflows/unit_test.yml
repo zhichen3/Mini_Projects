@@ -22,4 +22,4 @@ jobs:
 
       - name: Test
         run: |
-            ./unit_test
+            one_d_advection/./unit_test
