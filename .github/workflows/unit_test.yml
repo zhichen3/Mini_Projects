@@ -1,6 +1,6 @@
 name: advection-unit-tests
 
-on: [pull_request]
+on: push
 
 jobs:
   advection-tests:
