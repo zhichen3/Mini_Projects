@@ -6,8 +6,10 @@
 
 // This file stores some simple initial conditions 
 
-// tophat initial condition
-// vec is the physical domain
+///
+/// Tophat initial condition
+/// Takes the physical domain as parameter and returns the state.
+///
 std::vector<double> tophat(const std::vector<double>& domain){
   std::vector<double> state(domain.size(), 0.0);
   for (int i = 0; i < static_cast<int>(domain.size()); ++i){
@@ -19,6 +21,10 @@ std::vector<double> tophat(const std::vector<double>& domain){
   return state;
 }
 
+///
+/// Sine initial condition
+/// Takes the physical domain as parameter and returns the state.
+///
 std::vector<double> sine(const std::vector<double>& domain){
   std::vector<double> state(domain.size(), 1.0);
   const double pi = 3.141592654;
@@ -30,7 +36,10 @@ std::vector<double> sine(const std::vector<double>& domain){
   return state;
 }
 
-
+///
+/// Gaussian initial condition
+/// Takes the physical domain as parameter and returns the state.
+///
 std::vector<double> gaussian(const std::vector<double> &domain){
   std::vector<double> state(domain.size(), 0.0);
   const double sigma = 0.15;

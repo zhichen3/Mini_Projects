@@ -26,21 +26,56 @@ private:
   
   double xmax; 
 
-  int ng;  //number of ghost points on each end
-  int nx;  //domain points excluding ghost points
+  ///
+  ///number of ghost points on each end
+  ///
   
-  int ilo; //lower bound point of the domain excluding ghost point
-  int ihi; //high bound point of the domain excluding ghost point
+  int ng;
 
-  double dx;  //separation between each point
+  ///
+  ///domain points excluding ghost points
+  /// 
+  int nx;  
 
-  std::vector<double> state;  //current state, carry the state for each physical coordinate
-  std::vector<double> state_init; //initial state
+  ///
+  ///lower bound point of the domain excluding ghost point
+  ///
+  int ilo;
+
+  ///
+  ///high bound point of the domain excluding ghost point
+  ///
+  int ihi; 
+
+  ///
+  ///separation between each point
+  ///
+  double dx; 
+
+  ///
+  ///current state, carry the state for each physical coordinate
+  ///
+  std::vector<double> state;
+
+  ///
+  /// initial state
+  ///
+  std::vector<double> state_init;
+
+  ///
+  /// some temporary state to hold value
   std::vector<double> temp_state;
-  std::vector<double> x; //physical x-coordinate including ghost points
+
+  ///
+  ///physical x-coordinate including ghost points
+  ///
+  std::vector<double> x; 
 
   
 public:
+  ///
+  /// Constructing our _1DGrid
+  ///
   _1DGrid(int _nx, int _ng= 2, double _xmin= 0.0, double _xmax= 1.0)
     :xmin{_xmin},
      xmax{_xmax}, 
@@ -63,23 +98,31 @@ public:
       x.push_back(_xmin + (i - _ng+0.5)*dx);
     }
   }
-
-  // Returns a scratched array, 0 array
+  
+  ///
+  /// Returns a scratched array, 0 array with size nx+2*ng
+  ///
   std::vector<double> scratch_array();
 
-  // invoke the boundary condition to update ghost cell
+  ///
+  /// invoke the boundary condition to update ghost cell
+  ///
   void fill_BCs_diff();
-  //  void fill_BCs_vol();
 
-  // set initial condition
+  ///
+  /// set initial condition
+  ///
   void set_init(std::vector<double> init_vec);
-    
-  std::vector<double> get_state();
-  
-  // friend std::ostream& operator<< (std::ostream& os, const FDGrid& grid);
 
-  // make advection_solver class a friend of FDGrid
-   friend class advection_solver;
+  ///
+  /// Returns the current state
+  ///
+  std::vector<double> get_state();
+
+  ///
+  /// make advection_solver class a friend of _1DGrid
+  ///
+  friend class advection_solver;
 };
 
 #endif
