@@ -70,7 +70,10 @@
 <dl class="cpp class">
 <dt class="sig sig-object cpp" id="_CPPv47_1DGrid">
 <span id="_CPPv37_1DGrid"></span><span id="_CPPv27_1DGrid"></span><span id="_1DGrid"></span><span class="target" id="class__1DGrid"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">_1DGrid</span></span></span><a class="headerlink" href="#_CPPv47_1DGrid" title="Permalink to this definition"></a><br /></dt>
-<dd><div class="breathe-sectiondef docutils container">
+<dd><div class="docutils container">
+<em>#include &lt;<a class="reference internal" href="#__1DGrid_8H"><span class="std std-ref">_1DGrid.H</span></a>&gt;</em></div>
+<p>Create a 1D grid for advection create a grid for the fluid in the domain from [xmin,xmax] including ghost points. Allow number of ghost points/cells, ng, on each end. The resolution of the domain is determined by nx, the numebr of points or cells. </p>
+<div class="breathe-sectiondef docutils container">
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4N7_1DGrid7_1DGridEiidd">
@@ -103,12 +106,14 @@
 <dl class="cpp var">
 <dt class="sig sig-object cpp" id="_CPPv4N7_1DGrid4xminE">
 <span id="_CPPv3N7_1DGrid4xminE"></span><span id="_CPPv2N7_1DGrid4xminE"></span><span id="_1DGrid::xmin__double"></span><span class="target" id="class__1DGrid_1a3e343a0c5fa9bc0de29e54388993f2e5"></span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">xmin</span></span></span><a class="headerlink" href="#_CPPv4N7_1DGrid4xminE" title="Permalink to this definition"></a><br /></dt>
-<dd></dd></dl>
+<dd><p>physical xmin of the domain excluding ghost point </p>
+</dd></dl>
 
 <dl class="cpp var">
 <dt class="sig sig-object cpp" id="_CPPv4N7_1DGrid4xmaxE">
 <span id="_CPPv3N7_1DGrid4xmaxE"></span><span id="_CPPv2N7_1DGrid4xmaxE"></span><span id="_1DGrid::xmax__double"></span><span class="target" id="class__1DGrid_1a03535859ffef715ae21d8d7a3ab80232"></span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">xmax</span></span></span><a class="headerlink" href="#_CPPv4N7_1DGrid4xmaxE" title="Permalink to this definition"></a><br /></dt>
-<dd></dd></dl>
+<dd><p>physical xmax of the domain excluding ghost point </p>
+</dd></dl>
 
 <dl class="cpp var">
 <dt class="sig sig-object cpp" id="_CPPv4N7_1DGrid2ngE">
