@@ -2,4 +2,4 @@ Doxygen Files
 =============
 
 .. doxygenindex::
-   :project: project advection
+   :project: advection
