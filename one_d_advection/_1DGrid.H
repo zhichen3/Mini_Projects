@@ -6,14 +6,25 @@
 #include<iostream>
 #include<cassert>
 
-// Create a 1D grid for advection
+///
+/// Create a 1D grid for advection
+/// create a grid for the fluid in the domain from [xmin,xmax] including ghost points. Allow number of ghost points/cells, ng, on each end. The resolution of the domain is determined by nx, the numebr of points or cells. 
+///
 
 class _1DGrid{
-// create a grid for the fluid in the domain from [xmin,xmax] including ghost points. Allow number of ghost points/cells, ng, on each end. The resolution of the domain is determined by nx, the numebr of points or cells. 
   
 private:
-  double xmin; //physical xmin of the domain excluding ghost point
-  double xmax; //physical xmax of the domain excluding ghost point
+  ///
+  ///physical xmin of the domain excluding ghost point
+  ///
+  
+  double xmin; 
+
+  ///
+  ///physical xmax of the domain excluding ghost point
+  ///
+  
+  double xmax; 
 
   int ng;  //number of ghost points on each end
   int nx;  //domain points excluding ghost points
