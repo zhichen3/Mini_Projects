@@ -22,4 +22,4 @@ jobs:
 
       - name: Test
         run: |
-            ./unit_test_vector2d
+            ./unit_test
