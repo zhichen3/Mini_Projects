@@ -44,7 +44,3 @@ There is a pre-wrritten *unit_test.cpp* that tests this mechanism and how to use
 
    ./plot *dat
 
-
-.. code:: c++
-
-   #include <iostream>

@@ -36,7 +36,8 @@ extensions = [
     "sphinx.ext.viewcode",
     "sphinx.ext.graphviz",
     "sphinx-prompt",
-    "sphinx_copybutton"
+    "sphinx_copybutton",
+    "sphinx_panels"
 ]
 
 # Add any paths that contain templates here, relative to this directory.
