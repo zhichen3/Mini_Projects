@@ -2,4 +2,4 @@ sphinx
 sphinx_rtd_theme
 breathe
 sphinx-prompt
-sphinx-copybutton
+sphinx_copybutton
