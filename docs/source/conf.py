@@ -35,6 +35,7 @@ extensions = [
     "sphinx.ext.mathjax",
     "sphinx.ext.viewcode",
     "sphinx.ext.graphviz",
+    'sphinx.ext.autosectionlabel',
     "sphinx-prompt",
     "sphinx_copybutton",
     "sphinx_panels"

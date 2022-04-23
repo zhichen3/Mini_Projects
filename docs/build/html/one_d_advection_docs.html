@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>1-D advection in C++ &mdash; Mini Computational Projects  documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/graphviz.css" type="text/css" />
+      <link rel="stylesheet" href="_static/copybutton.css" type="text/css" />
+      <link rel="stylesheet" href="_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" type="text/css" />
+      <link rel="stylesheet" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" type="text/css" />
+      <link rel="stylesheet" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/clipboard.min.js"></script>
+        <script src="_static/copybutton.js"></script>
+        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="1-D advection" href="one_d_advection_code.html" />
+    <link rel="prev" title="Nonlinear 1-D advection" href="nonlin_one_d_advection.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> Mini Computational Projects
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Advection</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="lin_one_d_advection.html">Linear 1-D Advection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nonlin_one_d_advection.html">Nonlinear 1-D advection</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">1-D advection in C++</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#descriptions">Descriptions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#dgrid">_1DGrid</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#solver">solver</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#initial-condition">Initial Condition</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#verification">Verification</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="one_d_advection_code.html">1-D advection</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Mini Computational Projects</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>1-D advection in C++</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/one_d_advection_docs.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="d-advection-in-c">
+<h1>1-D advection in C++<a class="headerlink" href="#d-advection-in-c" title="Permalink to this headline"></a></h1>
+<p>See <a class="reference internal" href="one_d_advection_code.html#d-advection"><span class="std std-ref">1-D advection</span></a> under API for the implementation of solving both linear and nonlinear 1-D advection method in C++.</p>
+<section id="descriptions">
+<h2>Descriptions<a class="headerlink" href="#descriptions" title="Permalink to this headline"></a></h2>
+<section id="dgrid">
+<h3>_1DGrid<a class="headerlink" href="#dgrid" title="Permalink to this headline"></a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">_1DGrid.H</span></code> contains the class for creating a 1D Grid for advection to take place. It creates a grid on the physical domain [xmin, xmax] with finite resolution of grid points nx and ghost points ng.</p>
+</section>
+<section id="solver">
+<h3>solver<a class="headerlink" href="#solver" title="Permalink to this headline"></a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">solver.H</span></code> contains the 1D advection solver with linear methods like <em>ftcs</em> and <em>upwinding</em> methods, and nonlinear methods like <em>predictor corrector</em> and <em>method of lines</em> schemes. Some slope are also provides such as <em>piecewise constant</em>, <em>centered</em>, <em>minmod</em>, and <em>MC</em>.</p>
+</section>
+<section id="initial-condition">
+<h3>Initial Condition<a class="headerlink" href="#initial-condition" title="Permalink to this headline"></a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">init_cond.H</span></code> contains three example initial conditions, including <em>tophat</em>, <em>sine</em>, and <em>gaussian</em>.</p>
+<p>Initial condition function should take the physical domain, e.g. <span class="math notranslate nohighlight">\(x\)</span> as input parameter.</p>
+</section>
+</section>
+<section id="verification">
+<h2>Verification<a class="headerlink" href="#verification" title="Permalink to this headline"></a></h2>
+<p>To verify the validity of the advection solver, states shoudl return back to the original state after full cycles. Therefore, enter <code class="docutils literal notranslate"><span class="pre">num_periods</span></code> as a whole number, and see the evolved state comparing with the initial state. Initial state and final state should appear in the same directory for plotting purposes.</p>
+<ul>
+<li><p>If <code class="docutils literal notranslate"><span class="pre">num_periods</span></code> is a whole number <code class="docutils literal notranslate"><span class="pre">solver::solve()</span></code> also prints out the relative error between the final and the initial state.</p></li>
+<li><p>More accurate comparison is to plot the final and initial state. There is a pre-written python script that would plot all the dat files. Simply run the following command, where [dat files] are the dat files after running the advection solver. One could use <code class="docutils literal notranslate"><span class="pre">*.dat</span></code> to plot all the files.</p>
+<blockquote>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><style type="text/css">
+span.prompt1:before {
+  content: "$ ";
+}
+</style><span class="prompt1">./plot <span class="o">[</span>dat files<span class="o">]</span></span>
+</pre></div></div></div></blockquote>
+</li>
+</ul>
+<p>There is a pre-wrritten <em>unit_test.cpp</em> that tests this mechanism and how to use the code. Simply run this file and plot all the output files. Or the following command</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span class="prompt1">make unit_test <span class="nv">DEBUG</span><span class="o">=</span>TRUE</span>
+<span class="prompt1"></span>
+<span class="prompt1">./unit_test</span>
+<span class="prompt1"></span>
+<span class="prompt1">./plot *dat</span>
+</pre></div></div></section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="nonlin_one_d_advection.html" class="btn btn-neutral float-left" title="Nonlinear 1-D advection" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="one_d_advection_code.html" class="btn btn-neutral float-right" title="1-D advection" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Zhi Chen.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
