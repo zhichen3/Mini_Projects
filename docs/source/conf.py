@@ -34,7 +34,9 @@ extensions = [
     "breathe",
     "sphinx.ext.mathjax",
     "sphinx.ext.viewcode",
-    "sphinx.ext.graphviz"
+    "sphinx.ext.graphviz",
+    "sphinx-prompt",
+    "sphinx-copybutton"
 ]
 
 # Add any paths that contain templates here, relative to this directory.
