@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Linear 1-D Advection &mdash; Mini Computational Projects  documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/graphviz.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Nonlinear 1-D advection" href="nonlin_one_d_advection.html" />
+    <link rel="prev" title="Mini Computational Projects’s documentation!" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> Mini Computational Projects
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Advection</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Linear 1-D Advection</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#ftcs-method">FTCS Method</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#stability-check">Stability Check</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#upwinding-method">Upwinding Method</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ghost-cells-ghost-points">Ghost Cells/Ghost Points</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="nonlin_one_d_advection.html">Nonlinear 1-D advection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="one_d_advection_docs.html">1-D advection in C++</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="one_d_advection_code.html">1-D advection</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Mini Computational Projects</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Linear 1-D Advection</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/lin_one_d_advection.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="linear-1-d-advection">
+<h1>Linear 1-D Advection<a class="headerlink" href="#linear-1-d-advection" title="Permalink to this headline"></a></h1>
+<p>1-D advection equation, where <span class="math notranslate nohighlight">\(a\)</span> represents the state of advection and <span class="math notranslate nohighlight">\(u\)</span> is the velocity of advection.</p>
+<div class="math notranslate nohighlight">
+\[a_t + ua_x = 0\]</div>
+<p>With initial condition, <span class="math notranslate nohighlight">\(a(x,t = 0)\)</span> and boundary condition,
+The solution to the equation has form:</p>
+<div class="math notranslate nohighlight">
+\[a(x,t) = a(x-ut)\]</div>
+<section id="ftcs-method">
+<h2>FTCS Method<a class="headerlink" href="#ftcs-method" title="Permalink to this headline"></a></h2>
+<p>Consider first order approximation on the left but second order approximation on the right:</p>
+<div class="math notranslate nohighlight">
+\[\frac{a^{n+1}_i - a^n_i}{\Delta t} = -u\frac{a^n_{i+1}} - a^n_{i-1}{2\Delta x}\]</div>
+<p>Rewriting it:</p>
+<div class="math notranslate nohighlight">
+\[a^{n+1}_i = a^n_i - \frac{C}{2} \left( a^n_{i+1} - a^n_{i-1} \right)\]</div>
+<p>where C is the Courant Number.</p>
+<div class="math notranslate nohighlight">
+\[C = \frac{u\Delta t}{\Delta x}\]</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>For FTCS method, smaller C gives better answer.
+FTCS method is also unstable.</p>
+</div>
+<section id="stability-check">
+<h3>Stability Check<a class="headerlink" href="#stability-check" title="Permalink to this headline"></a></h3>
+<p>Stability check through Fourier Mode Discretization:</p>
+<p>We substitute, use <span class="math notranslate nohighlight">\(I\)</span> for imaginary number.</p>
+<div class="math notranslate nohighlight">
+\[a^n_i = A^ne^{-Ii\theta}\]</div>
+<p>Method is stable if:</p>
+<div class="math notranslate nohighlight">
+\[\left| \frac{A^{n+1}}{A_n} \right| \leq 1\]</div>
+<p>For FTCS:</p>
+<div class="math notranslate nohighlight">
+\[ \begin{align}\begin{aligned}a^{n+1}_i = a^n_i - \frac{C}{2}(a^n_{i+1} - a^n_{i-1})\\A^{n+1}e^{Ii\theta} = A^ne^{Ii\theta} - \frac{C}{2} \left( A^ne^{I(i+1)\theta} - A^ne^{I(i-1)\theta} \right)\\A^{n+1} = A^n - \frac{C}{2} A^n \left( e^{I\theta}-e^{-I\theta} \right)\\A^{n+1} = A^n\left( 1 - IC\sin{\theta} \right)\\The magnitude is therefore:\end{aligned}\end{align} \]</div>
+<div class="math notranslate nohighlight">
+\[\left| \frac{A^{n+1}}{A^n} \right|^2 = 1+C^2\sin^2{\theta} \geq 1\]</div>
+<p>Since its always <span class="math notranslate nohighlight">\(\geq 1\)</span>, there is no way to make it stable.</p>
+</section>
+</section>
+<section id="upwinding-method">
+<h2>Upwinding Method<a class="headerlink" href="#upwinding-method" title="Permalink to this headline"></a></h2>
+<p>Consider first order expansion on both sides instead of second order expansion on the rhs for FTCS method.</p>
+<div class="math notranslate nohighlight">
+\[(a_x)_i \approx \frac{a_i - a_{i-1}}{\Delta x} + \mathcal{O}\]</div>
+<p>Or</p>
+<div class="math notranslate nohighlight">
+\[(a_x)_i \approx \frac{a_{i+1} - a_{i}}{\Delta x} + \mathcal{O}\]</div>
+<p>If <span class="math notranslate nohighlight">\(u &gt; 0\)</span>, suggesting traveling from left to right, we choose upwinding, i.e. :</p>
+<div class="math notranslate nohighlight">
+\[\frac{a^{n+1}_i - a^n_i }{\Delta t} = -u\frac{a^n_i - a^n_{i-1}}{\Delta x}\]</div>
+<p>Rewriting:</p>
+<div class="math notranslate nohighlight">
+\[a^{n+1}_i = a^n_i - C(a^n_i - a^n_{i-1})\]</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Upwinidng method gives exact solution if <span class="math notranslate nohighlight">\(C = 1\)</span>. Upwinding is also stable if <span class="math notranslate nohighlight">\(C \leq 1\)</span>.</p>
+</div>
+</section>
+<section id="ghost-cells-ghost-points">
+<h2>Ghost Cells/Ghost Points<a class="headerlink" href="#ghost-cells-ghost-points" title="Permalink to this headline"></a></h2>
+<p>Imagine have N points to describe a fluid from 0, 1, 2, … N. When we do the update for <span class="math notranslate nohighlight">\(a[0]\)</span>, but we need information from <span class="math notranslate nohighlight">\(a[-1]\)</span>, which is outside of the domain. We need to extend the domain past the boundary, by creating ghost points:</p>
+<p>Boundary conditon describes what happens to the domain when you go outside of the scope.</p>
+<p>Ghost points are used to implement boundary conditions, if periodic:</p>
+<div class="math notranslate nohighlight">
+\[ \begin{align}\begin{aligned}a^n_{hi+1} = a^n_{lo+1}\\a^n_{lo-1} = a^n_{hi-1}\end{aligned}\end{align} \]</div>
+<p>if outflow:</p>
+<div class="math notranslate nohighlight">
+\[ \begin{align}\begin{aligned}a^n_{hi+1} = a^n_{hi+1}\\a^n_{lo-1} = a^n_{lo-1}\end{aligned}\end{align} \]</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="Mini Computational Projects’s documentation!" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="nonlin_one_d_advection.html" class="btn btn-neutral float-right" title="Nonlinear 1-D advection" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Zhi Chen.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
