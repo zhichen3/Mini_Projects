@@ -1,0 +1,302 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="class__1DGrid" kind="class" language="C++" prot="public">
+    <compoundname>_1DGrid</compoundname>
+    <includes refid="__1DGrid_8H" local="no">_1DGrid.H</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class__1DGrid_1a3e343a0c5fa9bc0de29e54388993f2e5" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double _1DGrid::xmin</definition>
+        <argsstring></argsstring>
+        <name>xmin</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>physical xmin of the domain excluding ghost point </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/zhi/Github/Mini_Projects/one_d_advection/_1DGrid.H" line="21" column="10" bodyfile="/home/zhi/Github/Mini_Projects/one_d_advection/_1DGrid.H" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class__1DGrid_1a03535859ffef715ae21d8d7a3ab80232" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double _1DGrid::xmax</definition>
+        <argsstring></argsstring>
+        <name>xmax</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>physical xmax of the domain excluding ghost point </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/zhi/Github/Mini_Projects/one_d_advection/_1DGrid.H" line="27" column="10" bodyfile="/home/zhi/Github/Mini_Projects/one_d_advection/_1DGrid.H" bodystart="27" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class__1DGrid_1a04ab0ecbab9886fc244c08a1f83d441f" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int _1DGrid::ng</definition>
+        <argsstring></argsstring>
+        <name>ng</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>number of ghost points on each end </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/zhi/Github/Mini_Projects/one_d_advection/_1DGrid.H" line="33" column="7" bodyfile="/home/zhi/Github/Mini_Projects/one_d_advection/_1DGrid.H" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class__1DGrid_1a20d32aed02287c44dbc9a6d78d7c6e5e" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int _1DGrid::nx</definition>
+        <argsstring></argsstring>
+        <name>nx</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>domain points excluding ghost points </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/zhi/Github/Mini_Projects/one_d_advection/_1DGrid.H" line="38" column="7" bodyfile="/home/zhi/Github/Mini_Projects/one_d_advection/_1DGrid.H" bodystart="38" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class__1DGrid_1a58d60345a5de18bee103b65e6380634d" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int _1DGrid::ilo</definition>
+        <argsstring></argsstring>
+        <name>ilo</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>lower bound point of the domain excluding ghost point </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/zhi/Github/Mini_Projects/one_d_advection/_1DGrid.H" line="43" column="7" bodyfile="/home/zhi/Github/Mini_Projects/one_d_advection/_1DGrid.H" bodystart="43" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class__1DGrid_1a91493338ada8f9848629ebc92dd7c76a" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int _1DGrid::ihi</definition>
+        <argsstring></argsstring>
+        <name>ihi</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>high bound point of the domain excluding ghost point </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/zhi/Github/Mini_Projects/one_d_advection/_1DGrid.H" line="48" column="7" bodyfile="/home/zhi/Github/Mini_Projects/one_d_advection/_1DGrid.H" bodystart="48" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class__1DGrid_1af266ac392c13c368618ae513a3ce345d" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double _1DGrid::dx</definition>
+        <argsstring></argsstring>
+        <name>dx</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>separation between each point </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/zhi/Github/Mini_Projects/one_d_advection/_1DGrid.H" line="53" column="10" bodyfile="/home/zhi/Github/Mini_Projects/one_d_advection/_1DGrid.H" bodystart="53" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class__1DGrid_1a37482c2df5689387c68c38c63e3568bb" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; double &gt;</type>
+        <definition>std::vector&lt;double&gt; _1DGrid::state</definition>
+        <argsstring></argsstring>
+        <name>state</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>current state, carry the state for each physical coordinate </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/zhi/Github/Mini_Projects/one_d_advection/_1DGrid.H" line="58" column="15" bodyfile="/home/zhi/Github/Mini_Projects/one_d_advection/_1DGrid.H" bodystart="58" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class__1DGrid_1ab91089261d8419d62abad9cd51e0eaf6" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; double &gt;</type>
+        <definition>std::vector&lt;double&gt; _1DGrid::state_init</definition>
+        <argsstring></argsstring>
+        <name>state_init</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>initial state </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/zhi/Github/Mini_Projects/one_d_advection/_1DGrid.H" line="63" column="15" bodyfile="/home/zhi/Github/Mini_Projects/one_d_advection/_1DGrid.H" bodystart="63" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class__1DGrid_1a5d8d432c4553693196a6f5580c64b368" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; double &gt;</type>
+        <definition>std::vector&lt;double&gt; _1DGrid::temp_state</definition>
+        <argsstring></argsstring>
+        <name>temp_state</name>
+        <briefdescription>
+<para>some temporary state to hold value </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/zhi/Github/Mini_Projects/one_d_advection/_1DGrid.H" line="67" column="15" bodyfile="/home/zhi/Github/Mini_Projects/one_d_advection/_1DGrid.H" bodystart="67" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class__1DGrid_1ae9f2750394678e90eedb55e6374dd6d9" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; double &gt;</type>
+        <definition>std::vector&lt;double&gt; _1DGrid::x</definition>
+        <argsstring></argsstring>
+        <name>x</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>physical x-coordinate including ghost points </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/zhi/Github/Mini_Projects/one_d_advection/_1DGrid.H" line="72" column="15" bodyfile="/home/zhi/Github/Mini_Projects/one_d_advection/_1DGrid.H" bodystart="72" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="friend">
+      <memberdef kind="friend" id="class__1DGrid_1ad74e6867c5b259da762ef6f32fd072fa" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>class</type>
+        <definition>friend class advection_solver</definition>
+        <argsstring></argsstring>
+        <name>advection_solver</name>
+        <param>
+          <type><ref refid="classadvection__solver" kindref="compound">advection_solver</ref></type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>make <ref refid="classadvection__solver" kindref="compound">advection_solver</ref> class a friend of <ref refid="class__1DGrid" kindref="compound">_1DGrid</ref> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/zhi/Github/Mini_Projects/one_d_advection/_1DGrid.H" line="125" column="3" bodyfile="/home/zhi/Github/Mini_Projects/one_d_advection/_1DGrid.H" bodystart="125" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class__1DGrid_1a1c1b17a2d296f6e3eba9c836522d3b31" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>_1DGrid::_1DGrid</definition>
+        <argsstring>(int _nx, int _ng=2, double _xmin=0.0, double _xmax=1.0)</argsstring>
+        <name>_1DGrid</name>
+        <param>
+          <type>int</type>
+          <declname>_nx</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>_ng</declname>
+          <defval>2</defval>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>_xmin</declname>
+          <defval>0.0</defval>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>_xmax</declname>
+          <defval>1.0</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Constructing our <ref refid="class__1DGrid" kindref="compound">_1DGrid</ref> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/zhi/Github/Mini_Projects/one_d_advection/_1DGrid.H" line="79" column="3" bodyfile="/home/zhi/Github/Mini_Projects/one_d_advection/_1DGrid.H" bodystart="79" bodyend="100"/>
+      </memberdef>
+      <memberdef kind="function" id="class__1DGrid_1ae945585e120da0dccd495ee9376e7ca6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::vector&lt; double &gt;</type>
+        <definition>std::vector&lt; double &gt; _1DGrid::scratch_array</definition>
+        <argsstring>()</argsstring>
+        <name>scratch_array</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns a scratched array, 0 array with size nx+2*ng </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/zhi/Github/Mini_Projects/one_d_advection/_1DGrid.H" line="105" column="15" bodyfile="/home/zhi/Github/Mini_Projects/one_d_advection/_1DGrid.cpp" bodystart="4" bodyend="8"/>
+      </memberdef>
+      <memberdef kind="function" id="class__1DGrid_1afca41a4833dfdd520038c28d625a498d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void _1DGrid::fill_BCs_diff</definition>
+        <argsstring>()</argsstring>
+        <name>fill_BCs_diff</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>invoke the boundary condition to update ghost cell </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/zhi/Github/Mini_Projects/one_d_advection/_1DGrid.H" line="110" column="8" bodyfile="/home/zhi/Github/Mini_Projects/one_d_advection/_1DGrid.cpp" bodystart="11" bodyend="18"/>
+      </memberdef>
+      <memberdef kind="function" id="class__1DGrid_1a36e5201fec8d298bb5a61d7c8eebb5d3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void _1DGrid::set_init</definition>
+        <argsstring>(std::vector&lt; double &gt; init_vec)</argsstring>
+        <name>set_init</name>
+        <param>
+          <type>std::vector&lt; double &gt;</type>
+          <declname>init_vec</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>set initial condition </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/zhi/Github/Mini_Projects/one_d_advection/_1DGrid.H" line="115" column="8" bodyfile="/home/zhi/Github/Mini_Projects/one_d_advection/_1DGrid.cpp" bodystart="30" bodyend="36"/>
+      </memberdef>
+      <memberdef kind="function" id="class__1DGrid_1a5c53e910fe81525befa9c6464fd0e3a0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::vector&lt; double &gt;</type>
+        <definition>std::vector&lt; double &gt; _1DGrid::get_state</definition>
+        <argsstring>()</argsstring>
+        <name>get_state</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the current state </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/zhi/Github/Mini_Projects/one_d_advection/_1DGrid.H" line="120" column="15" bodyfile="/home/zhi/Github/Mini_Projects/one_d_advection/_1DGrid.cpp" bodystart="38" bodyend="40"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Create a 1D grid for advection create a grid for the fluid in the domain from [xmin,xmax] including ghost points. Allow number of ghost points/cells, ng, on each end. The resolution of the domain is determined by nx, the numebr of points or cells. </para>
+    </detaileddescription>
+    <location file="/home/zhi/Github/Mini_Projects/one_d_advection/_1DGrid.H" line="14" column="1" bodyfile="/home/zhi/Github/Mini_Projects/one_d_advection/_1DGrid.H" bodystart="14" bodyend="126"/>
+    <listofallmembers>
+      <member refid="class__1DGrid_1a1c1b17a2d296f6e3eba9c836522d3b31" prot="public" virt="non-virtual"><scope>_1DGrid</scope><name>_1DGrid</name></member>
+      <member refid="class__1DGrid_1ad74e6867c5b259da762ef6f32fd072fa" prot="public" virt="non-virtual"><scope>_1DGrid</scope><name>advection_solver</name></member>
+      <member refid="class__1DGrid_1af266ac392c13c368618ae513a3ce345d" prot="private" virt="non-virtual"><scope>_1DGrid</scope><name>dx</name></member>
+      <member refid="class__1DGrid_1afca41a4833dfdd520038c28d625a498d" prot="public" virt="non-virtual"><scope>_1DGrid</scope><name>fill_BCs_diff</name></member>
+      <member refid="class__1DGrid_1a5c53e910fe81525befa9c6464fd0e3a0" prot="public" virt="non-virtual"><scope>_1DGrid</scope><name>get_state</name></member>
+      <member refid="class__1DGrid_1a91493338ada8f9848629ebc92dd7c76a" prot="private" virt="non-virtual"><scope>_1DGrid</scope><name>ihi</name></member>
+      <member refid="class__1DGrid_1a58d60345a5de18bee103b65e6380634d" prot="private" virt="non-virtual"><scope>_1DGrid</scope><name>ilo</name></member>
+      <member refid="class__1DGrid_1a04ab0ecbab9886fc244c08a1f83d441f" prot="private" virt="non-virtual"><scope>_1DGrid</scope><name>ng</name></member>
+      <member refid="class__1DGrid_1a20d32aed02287c44dbc9a6d78d7c6e5e" prot="private" virt="non-virtual"><scope>_1DGrid</scope><name>nx</name></member>
+      <member refid="class__1DGrid_1ae945585e120da0dccd495ee9376e7ca6" prot="public" virt="non-virtual"><scope>_1DGrid</scope><name>scratch_array</name></member>
+      <member refid="class__1DGrid_1a36e5201fec8d298bb5a61d7c8eebb5d3" prot="public" virt="non-virtual"><scope>_1DGrid</scope><name>set_init</name></member>
+      <member refid="class__1DGrid_1a37482c2df5689387c68c38c63e3568bb" prot="private" virt="non-virtual"><scope>_1DGrid</scope><name>state</name></member>
+      <member refid="class__1DGrid_1ab91089261d8419d62abad9cd51e0eaf6" prot="private" virt="non-virtual"><scope>_1DGrid</scope><name>state_init</name></member>
+      <member refid="class__1DGrid_1a5d8d432c4553693196a6f5580c64b368" prot="private" virt="non-virtual"><scope>_1DGrid</scope><name>temp_state</name></member>
+      <member refid="class__1DGrid_1ae9f2750394678e90eedb55e6374dd6d9" prot="private" virt="non-virtual"><scope>_1DGrid</scope><name>x</name></member>
+      <member refid="class__1DGrid_1a03535859ffef715ae21d8d7a3ab80232" prot="private" virt="non-virtual"><scope>_1DGrid</scope><name>xmax</name></member>
+      <member refid="class__1DGrid_1a3e343a0c5fa9bc0de29e54388993f2e5" prot="private" virt="non-virtual"><scope>_1DGrid</scope><name>xmin</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

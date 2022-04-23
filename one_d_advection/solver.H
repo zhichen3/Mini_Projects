@@ -41,7 +41,7 @@ private:
   ///
   /// A function that takes the physical domain, e.g. x, as argument that returns the initial state for advection.
   ///
-  std::function<std::vector<double>(std::vector<double>&)> init_cond;
+  std::function< std::vector<double> (std::vector<double>&) > init_cond;
 
   ///
   /// Advection method of choice.

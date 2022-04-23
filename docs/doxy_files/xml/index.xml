@@ -1,0 +1,66 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygenindex xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="index.xsd" version="1.9.1" xml:lang="en-US">
+  <compound refid="class__1DGrid" kind="class"><name>_1DGrid</name>
+    <member refid="class__1DGrid_1a3e343a0c5fa9bc0de29e54388993f2e5" kind="variable"><name>xmin</name></member>
+    <member refid="class__1DGrid_1a03535859ffef715ae21d8d7a3ab80232" kind="variable"><name>xmax</name></member>
+    <member refid="class__1DGrid_1a04ab0ecbab9886fc244c08a1f83d441f" kind="variable"><name>ng</name></member>
+    <member refid="class__1DGrid_1a20d32aed02287c44dbc9a6d78d7c6e5e" kind="variable"><name>nx</name></member>
+    <member refid="class__1DGrid_1a58d60345a5de18bee103b65e6380634d" kind="variable"><name>ilo</name></member>
+    <member refid="class__1DGrid_1a91493338ada8f9848629ebc92dd7c76a" kind="variable"><name>ihi</name></member>
+    <member refid="class__1DGrid_1af266ac392c13c368618ae513a3ce345d" kind="variable"><name>dx</name></member>
+    <member refid="class__1DGrid_1a37482c2df5689387c68c38c63e3568bb" kind="variable"><name>state</name></member>
+    <member refid="class__1DGrid_1ab91089261d8419d62abad9cd51e0eaf6" kind="variable"><name>state_init</name></member>
+    <member refid="class__1DGrid_1a5d8d432c4553693196a6f5580c64b368" kind="variable"><name>temp_state</name></member>
+    <member refid="class__1DGrid_1ae9f2750394678e90eedb55e6374dd6d9" kind="variable"><name>x</name></member>
+    <member refid="class__1DGrid_1ad74e6867c5b259da762ef6f32fd072fa" kind="friend"><name>advection_solver</name></member>
+    <member refid="class__1DGrid_1a1c1b17a2d296f6e3eba9c836522d3b31" kind="function"><name>_1DGrid</name></member>
+    <member refid="class__1DGrid_1ae945585e120da0dccd495ee9376e7ca6" kind="function"><name>scratch_array</name></member>
+    <member refid="class__1DGrid_1afca41a4833dfdd520038c28d625a498d" kind="function"><name>fill_BCs_diff</name></member>
+    <member refid="class__1DGrid_1a36e5201fec8d298bb5a61d7c8eebb5d3" kind="function"><name>set_init</name></member>
+    <member refid="class__1DGrid_1a5c53e910fe81525befa9c6464fd0e3a0" kind="function"><name>get_state</name></member>
+  </compound>
+  <compound refid="classadvection__solver" kind="class"><name>advection_solver</name>
+    <member refid="classadvection__solver_1af9ae33a48379bf7149b121c72ab7ffc2" kind="variable"><name>grid</name></member>
+    <member refid="classadvection__solver_1a2400d00f8f9fc7615d8844897a366161" kind="variable"><name>u</name></member>
+    <member refid="classadvection__solver_1a2a4a3452ff2d7d3f21728869560cedcd" kind="variable"><name>C</name></member>
+    <member refid="classadvection__solver_1a9654681b9ba19e479beae13ed9eb1548" kind="variable"><name>num_periods</name></member>
+    <member refid="classadvection__solver_1a1e19804a0700a8c8ba8f4b730f8becbd" kind="variable"><name>t</name></member>
+    <member refid="classadvection__solver_1a4613c155daba79cd5060e80fbb96fdfc" kind="variable"><name>init_cond</name></member>
+    <member refid="classadvection__solver_1aa0c56dd71dc1d3cb2a912e78b3f7ca44" kind="variable"><name>method</name></member>
+    <member refid="classadvection__solver_1a138d16584e8c385485bf0cb47e464e93" kind="variable"><name>slope_method</name></member>
+    <member refid="classadvection__solver_1a597ce71e67f0194925f67267ae11c0c7" kind="variable"><name>dt</name></member>
+    <member refid="classadvection__solver_1ac2057cca81457f5786e0f9effbb50b66" kind="variable"><name>dt_init</name></member>
+    <member refid="classadvection__solver_1aa1bef904601c5914ce932e0014be38fc" kind="variable"><name>tmax</name></member>
+    <member refid="classadvection__solver_1a530139737ab783e620ffa9f519fcfeac" kind="function"><name>ftcs</name></member>
+    <member refid="classadvection__solver_1a2d6d35539821e6163a3e03b41a8cb8bb" kind="function"><name>upwinding</name></member>
+    <member refid="classadvection__solver_1aef838198d54de1bc9453974bb4b5fa66" kind="function"><name>predictor_corrector</name></member>
+    <member refid="classadvection__solver_1a5312dc06d2bd38412a558f001e618594" kind="function"><name>method_of_lines</name></member>
+    <member refid="classadvection__solver_1a1b6026eb60ed2833a19060223879b931" kind="function"><name>rhs</name></member>
+    <member refid="classadvection__solver_1ab49bb935ccd3c957c94a1fc6e7077d87" kind="function"><name>riemann_selector</name></member>
+    <member refid="classadvection__solver_1af10d21fa73f68e4f30aef04d55aa1b04" kind="function"><name>slope</name></member>
+    <member refid="classadvection__solver_1a8a482a0536a53cec235d6dc52028b51d" kind="function"><name>advection_solver</name></member>
+    <member refid="classadvection__solver_1ab22bd613f4dec60c8c64a4e991faaa46" kind="function"><name>solve</name></member>
+    <member refid="classadvection__solver_1ae9a9dd55fd1da9ad01be4a7892dc36f5" kind="function"><name>print_state</name></member>
+    <member refid="classadvection__solver_1aa1a1e57ac7e540f0c57f95e321f5c6f3" kind="function"><name>find_error</name></member>
+    <member refid="classadvection__solver_1aa26bddfe171d28f99ebd8ef869f3d9f9" kind="function"><name>write_file</name></member>
+  </compound>
+  <compound refid="__1DGrid_8cpp" kind="file"><name>_1DGrid.cpp</name>
+  </compound>
+  <compound refid="__1DGrid_8H" kind="file"><name>_1DGrid.H</name>
+  </compound>
+  <compound refid="init__cond_8H" kind="file"><name>init_cond.H</name>
+    <member refid="init__cond_8H_1a666e4a916c5bebed3a7663c1b1be98de" kind="function"><name>tophat</name></member>
+    <member refid="init__cond_8H_1a7b692d288718574e403dae96607afe85" kind="function"><name>sine</name></member>
+    <member refid="init__cond_8H_1abeb5a484d9ba079677e8919464c0b826" kind="function"><name>gaussian</name></member>
+  </compound>
+  <compound refid="solver_8cpp" kind="file"><name>solver.cpp</name>
+    <member refid="solver_8cpp_1afe33a99d5b0c642b27c9abff1a16f0d0" kind="function"><name>minmod</name></member>
+  </compound>
+  <compound refid="solver_8H" kind="file"><name>solver.H</name>
+  </compound>
+  <compound refid="unit__test_8cpp" kind="file"><name>unit_test.cpp</name>
+    <member refid="unit__test_8cpp_1ae66f6b31b5ad750f1fe042a706a4e3d4" kind="function"><name>main</name></member>
+  </compound>
+  <compound refid="dir_8bdad36dd2a3db41eeb6356965d38ded" kind="dir"><name>/home/zhi/Github/Mini_Projects/one_d_advection</name>
+  </compound>
+</doxygenindex>

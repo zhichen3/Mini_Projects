@@ -1,0 +1,413 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="classadvection__solver" kind="class" language="C++" prot="public">
+    <compoundname>advection_solver</compoundname>
+    <includes refid="solver_8H" local="no">solver.H</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classadvection__solver_1af9ae33a48379bf7149b121c72ab7ffc2" prot="private" static="no" mutable="no">
+        <type><ref refid="class__1DGrid" kindref="compound">_1DGrid</ref></type>
+        <definition>_1DGrid advection_solver::grid</definition>
+        <argsstring></argsstring>
+        <name>grid</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>1DGrid class using <ref refid="__1DGrid_8H_source" kindref="compound">_1DGrid.H</ref> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/zhi/Github/Mini_Projects/one_d_advection/solver.H" line="18" column="11" bodyfile="/home/zhi/Github/Mini_Projects/one_d_advection/solver.H" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classadvection__solver_1a2400d00f8f9fc7615d8844897a366161" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double advection_solver::u</definition>
+        <argsstring></argsstring>
+        <name>u</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>velocity of advection. Positive travels to the right. Negative travels to the left </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/zhi/Github/Mini_Projects/one_d_advection/solver.H" line="24" column="10" bodyfile="/home/zhi/Github/Mini_Projects/one_d_advection/solver.H" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classadvection__solver_1a2a4a3452ff2d7d3f21728869560cedcd" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double advection_solver::C</definition>
+        <argsstring></argsstring>
+        <name>C</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Courant–Friedrichs–Lewy number, which is a a measure of what fraction of a zone we cross per timestep </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/zhi/Github/Mini_Projects/one_d_advection/solver.H" line="29" column="10" bodyfile="/home/zhi/Github/Mini_Projects/one_d_advection/solver.H" bodystart="29" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classadvection__solver_1a9654681b9ba19e479beae13ed9eb1548" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double advection_solver::num_periods</definition>
+        <argsstring></argsstring>
+        <name>num_periods</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Number of periods for advection </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/zhi/Github/Mini_Projects/one_d_advection/solver.H" line="34" column="10" bodyfile="/home/zhi/Github/Mini_Projects/one_d_advection/solver.H" bodystart="34" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classadvection__solver_1a1e19804a0700a8c8ba8f4b730f8becbd" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double advection_solver::t</definition>
+        <argsstring></argsstring>
+        <name>t</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>current time for advection </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/zhi/Github/Mini_Projects/one_d_advection/solver.H" line="39" column="10" bodyfile="/home/zhi/Github/Mini_Projects/one_d_advection/solver.H" bodystart="39" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classadvection__solver_1a4613c155daba79cd5060e80fbb96fdfc" prot="private" static="no" mutable="no">
+        <type>std::function&lt; std::vector&lt; double &gt;std::vector&lt; double &gt; &amp;) &gt;</type>
+        <definition>std::function&lt; std::vector&lt;double&gt;std::vector&lt;double&gt;&amp;) &gt; advection_solver::init_cond</definition>
+        <argsstring></argsstring>
+        <name>init_cond</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>A function that takes the physical domain, e.g. x, as argument that returns the initial state for advection. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/zhi/Github/Mini_Projects/one_d_advection/solver.H" line="44" column="20" bodyfile="/home/zhi/Github/Mini_Projects/one_d_advection/solver.H" bodystart="44" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classadvection__solver_1aa0c56dd71dc1d3cb2a912e78b3f7ca44" prot="private" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string advection_solver::method</definition>
+        <argsstring></argsstring>
+        <name>method</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Advection method of choice. For linear advection, choose between ftcs or upwinding For nonlinear advection, choose between predictor_corrector or method_of_lines </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/zhi/Github/Mini_Projects/one_d_advection/solver.H" line="51" column="15" bodyfile="/home/zhi/Github/Mini_Projects/one_d_advection/solver.H" bodystart="51" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classadvection__solver_1a138d16584e8c385485bf0cb47e464e93" prot="private" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string advection_solver::slope_method</definition>
+        <argsstring></argsstring>
+        <name>slope_method</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Slope method of choice for nonlinear advection methods. Choose between piecewise_const, centered, minmod, MC </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/zhi/Github/Mini_Projects/one_d_advection/solver.H" line="57" column="15" bodyfile="/home/zhi/Github/Mini_Projects/one_d_advection/solver.H" bodystart="57" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classadvection__solver_1a597ce71e67f0194925f67267ae11c0c7" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double advection_solver::dt</definition>
+        <argsstring></argsstring>
+        <name>dt</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>current time step </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/zhi/Github/Mini_Projects/one_d_advection/solver.H" line="62" column="10" bodyfile="/home/zhi/Github/Mini_Projects/one_d_advection/solver.H" bodystart="62" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classadvection__solver_1ac2057cca81457f5786e0f9effbb50b66" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double advection_solver::dt_init</definition>
+        <argsstring></argsstring>
+        <name>dt_init</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>initial timestep </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/zhi/Github/Mini_Projects/one_d_advection/solver.H" line="67" column="10" bodyfile="/home/zhi/Github/Mini_Projects/one_d_advection/solver.H" bodystart="67" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classadvection__solver_1aa1bef904601c5914ce932e0014be38fc" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double advection_solver::tmax</definition>
+        <argsstring></argsstring>
+        <name>tmax</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>end time of advection </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/zhi/Github/Mini_Projects/one_d_advection/solver.H" line="72" column="10" bodyfile="/home/zhi/Github/Mini_Projects/one_d_advection/solver.H" bodystart="72" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classadvection__solver_1a530139737ab783e620ffa9f519fcfeac" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void advection_solver::ftcs</definition>
+        <argsstring>()</argsstring>
+        <name>ftcs</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Linear advection method: ftcs method. Smaller C works better </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/zhi/Github/Mini_Projects/one_d_advection/solver.H" line="77" column="8" bodyfile="/home/zhi/Github/Mini_Projects/one_d_advection/solver.cpp" bodystart="77" bodyend="103"/>
+      </memberdef>
+      <memberdef kind="function" id="classadvection__solver_1a2d6d35539821e6163a3e03b41a8cb8bb" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void advection_solver::upwinding</definition>
+        <argsstring>()</argsstring>
+        <name>upwinding</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Linear upwinding method, requires C&lt;=1 for stability. If C=1 we have an exact solution </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/zhi/Github/Mini_Projects/one_d_advection/solver.H" line="82" column="8" bodyfile="/home/zhi/Github/Mini_Projects/one_d_advection/solver.cpp" bodystart="110" bodyend="135"/>
+      </memberdef>
+      <memberdef kind="function" id="classadvection__solver_1aef838198d54de1bc9453974bb4b5fa66" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void advection_solver::predictor_corrector</definition>
+        <argsstring>()</argsstring>
+        <name>predictor_corrector</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Nonlinear advection method: predictor_corrector. if choose slope to be piecewise_const, then its the same as upwinding method. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/zhi/Github/Mini_Projects/one_d_advection/solver.H" line="88" column="8" bodyfile="/home/zhi/Github/Mini_Projects/one_d_advection/solver.cpp" bodystart="141" bodyend="162"/>
+      </memberdef>
+      <memberdef kind="function" id="classadvection__solver_1a5312dc06d2bd38412a558f001e618594" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void advection_solver::method_of_lines</definition>
+        <argsstring>()</argsstring>
+        <name>method_of_lines</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Nonlinear advection method: method of lines method, uses RK4 integration. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/zhi/Github/Mini_Projects/one_d_advection/solver.H" line="93" column="8" bodyfile="/home/zhi/Github/Mini_Projects/one_d_advection/solver.cpp" bodystart="168" bodyend="249"/>
+      </memberdef>
+      <memberdef kind="function" id="classadvection__solver_1a1b6026eb60ed2833a19060223879b931" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double advection_solver::rhs</definition>
+        <argsstring>(int ind)</argsstring>
+        <name>rhs</name>
+        <param>
+          <type>int</type>
+          <declname>ind</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the RHS of equation da/dt </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/zhi/Github/Mini_Projects/one_d_advection/solver.H" line="98" column="10" bodyfile="/home/zhi/Github/Mini_Projects/one_d_advection/solver.cpp" bodystart="254" bodyend="258"/>
+      </memberdef>
+      <memberdef kind="function" id="classadvection__solver_1ab49bb935ccd3c957c94a1fc6e7077d87" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double advection_solver::riemann_selector</definition>
+        <argsstring>(int ind)</argsstring>
+        <name>riemann_selector</name>
+        <param>
+          <type>int</type>
+          <declname>ind</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the result of Riemann Problem depending on which advection directio, i.e. depending on the sign of u. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/zhi/Github/Mini_Projects/one_d_advection/solver.H" line="103" column="10" bodyfile="/home/zhi/Github/Mini_Projects/one_d_advection/solver.cpp" bodystart="265" bodyend="304"/>
+      </memberdef>
+      <memberdef kind="function" id="classadvection__solver_1af10d21fa73f68e4f30aef04d55aa1b04" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double advection_solver::slope</definition>
+        <argsstring>(int ind)</argsstring>
+        <name>slope</name>
+        <param>
+          <type>int</type>
+          <declname>ind</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the slope depending on the slope method of choice. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/zhi/Github/Mini_Projects/one_d_advection/solver.H" line="108" column="10" bodyfile="/home/zhi/Github/Mini_Projects/one_d_advection/solver.cpp" bodystart="309" bodyend="343"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classadvection__solver_1a8a482a0536a53cec235d6dc52028b51d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>advection_solver::advection_solver</definition>
+        <argsstring>(_1DGrid _grid, double _u, double _C, std::function&lt; std::vector&lt; double &gt;(const std::vector&lt; double &gt; &amp;)&gt; _init_cond, double _num_periods=1.0, const std::string &amp;_method=&quot;upwinding&quot;, const std::string &amp;_slope_method=&quot;centered&quot;)</argsstring>
+        <name>advection_solver</name>
+        <param>
+          <type><ref refid="class__1DGrid" kindref="compound">_1DGrid</ref></type>
+          <declname>_grid</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>_u</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>_C</declname>
+        </param>
+        <param>
+          <type>std::function&lt; std::vector&lt; double &gt;(const std::vector&lt; double &gt; &amp;)&gt;</type>
+          <declname>_init_cond</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>_num_periods</declname>
+          <defval>1.0</defval>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>_method</declname>
+          <defval>&quot;upwinding&quot;</defval>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>_slope_method</declname>
+          <defval>&quot;centered&quot;</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Constructing the advection solver </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/zhi/Github/Mini_Projects/one_d_advection/solver.H" line="114" column="3" bodyfile="/home/zhi/Github/Mini_Projects/one_d_advection/solver.H" bodystart="114" bodyend="139"/>
+      </memberdef>
+      <memberdef kind="function" id="classadvection__solver_1ab22bd613f4dec60c8c64a4e991faaa46" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void advection_solver::solve</definition>
+        <argsstring>()</argsstring>
+        <name>solve</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>It solves the advection equation with given advection method and slope if chose a nonlinear method. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/zhi/Github/Mini_Projects/one_d_advection/solver.H" line="144" column="8" bodyfile="/home/zhi/Github/Mini_Projects/one_d_advection/solver.cpp" bodystart="22" bodyend="71"/>
+      </memberdef>
+      <memberdef kind="function" id="classadvection__solver_1ae9a9dd55fd1da9ad01be4a7892dc36f5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void advection_solver::print_state</definition>
+        <argsstring>()</argsstring>
+        <name>print_state</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>It prints the current state(solution) </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/zhi/Github/Mini_Projects/one_d_advection/solver.H" line="149" column="8" bodyfile="/home/zhi/Github/Mini_Projects/one_d_advection/solver.cpp" bodystart="349" bodyend="355"/>
+      </memberdef>
+      <memberdef kind="function" id="classadvection__solver_1aa1a1e57ac7e540f0c57f95e321f5c6f3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double advection_solver::find_error</definition>
+        <argsstring>()</argsstring>
+        <name>find_error</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Return the relative error between initial and final state It can be called only when num_of_periods is a whole number, i.e. making a full cycle of advection. It is used to test the validity of advection method, which should return back to the original state. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/zhi/Github/Mini_Projects/one_d_advection/solver.H" line="156" column="10" bodyfile="/home/zhi/Github/Mini_Projects/one_d_advection/solver.cpp" bodystart="360" bodyend="377"/>
+      </memberdef>
+      <memberdef kind="function" id="classadvection__solver_1aa26bddfe171d28f99ebd8ef869f3d9f9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void advection_solver::write_file</definition>
+        <argsstring>(std::string fname)</argsstring>
+        <name>write_file</name>
+        <param>
+          <type>std::string</type>
+          <declname>fname</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>A procedure to write state data to file </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/zhi/Github/Mini_Projects/one_d_advection/solver.H" line="161" column="8" bodyfile="/home/zhi/Github/Mini_Projects/one_d_advection/solver.cpp" bodystart="381" bodyend="390"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>1-D advection solver. Contains both linear and nonlinear advection solver. </para>
+    </detaileddescription>
+    <location file="/home/zhi/Github/Mini_Projects/one_d_advection/solver.H" line="12" column="1" bodyfile="/home/zhi/Github/Mini_Projects/one_d_advection/solver.H" bodystart="12" bodyend="162"/>
+    <listofallmembers>
+      <member refid="classadvection__solver_1a8a482a0536a53cec235d6dc52028b51d" prot="public" virt="non-virtual"><scope>advection_solver</scope><name>advection_solver</name></member>
+      <member refid="classadvection__solver_1a2a4a3452ff2d7d3f21728869560cedcd" prot="private" virt="non-virtual"><scope>advection_solver</scope><name>C</name></member>
+      <member refid="classadvection__solver_1a597ce71e67f0194925f67267ae11c0c7" prot="private" virt="non-virtual"><scope>advection_solver</scope><name>dt</name></member>
+      <member refid="classadvection__solver_1ac2057cca81457f5786e0f9effbb50b66" prot="private" virt="non-virtual"><scope>advection_solver</scope><name>dt_init</name></member>
+      <member refid="classadvection__solver_1aa1a1e57ac7e540f0c57f95e321f5c6f3" prot="public" virt="non-virtual"><scope>advection_solver</scope><name>find_error</name></member>
+      <member refid="classadvection__solver_1a530139737ab783e620ffa9f519fcfeac" prot="private" virt="non-virtual"><scope>advection_solver</scope><name>ftcs</name></member>
+      <member refid="classadvection__solver_1af9ae33a48379bf7149b121c72ab7ffc2" prot="private" virt="non-virtual"><scope>advection_solver</scope><name>grid</name></member>
+      <member refid="classadvection__solver_1a4613c155daba79cd5060e80fbb96fdfc" prot="private" virt="non-virtual"><scope>advection_solver</scope><name>init_cond</name></member>
+      <member refid="classadvection__solver_1aa0c56dd71dc1d3cb2a912e78b3f7ca44" prot="private" virt="non-virtual"><scope>advection_solver</scope><name>method</name></member>
+      <member refid="classadvection__solver_1a5312dc06d2bd38412a558f001e618594" prot="private" virt="non-virtual"><scope>advection_solver</scope><name>method_of_lines</name></member>
+      <member refid="classadvection__solver_1a9654681b9ba19e479beae13ed9eb1548" prot="private" virt="non-virtual"><scope>advection_solver</scope><name>num_periods</name></member>
+      <member refid="classadvection__solver_1aef838198d54de1bc9453974bb4b5fa66" prot="private" virt="non-virtual"><scope>advection_solver</scope><name>predictor_corrector</name></member>
+      <member refid="classadvection__solver_1ae9a9dd55fd1da9ad01be4a7892dc36f5" prot="public" virt="non-virtual"><scope>advection_solver</scope><name>print_state</name></member>
+      <member refid="classadvection__solver_1a1b6026eb60ed2833a19060223879b931" prot="private" virt="non-virtual"><scope>advection_solver</scope><name>rhs</name></member>
+      <member refid="classadvection__solver_1ab49bb935ccd3c957c94a1fc6e7077d87" prot="private" virt="non-virtual"><scope>advection_solver</scope><name>riemann_selector</name></member>
+      <member refid="classadvection__solver_1af10d21fa73f68e4f30aef04d55aa1b04" prot="private" virt="non-virtual"><scope>advection_solver</scope><name>slope</name></member>
+      <member refid="classadvection__solver_1a138d16584e8c385485bf0cb47e464e93" prot="private" virt="non-virtual"><scope>advection_solver</scope><name>slope_method</name></member>
+      <member refid="classadvection__solver_1ab22bd613f4dec60c8c64a4e991faaa46" prot="public" virt="non-virtual"><scope>advection_solver</scope><name>solve</name></member>
+      <member refid="classadvection__solver_1a1e19804a0700a8c8ba8f4b730f8becbd" prot="private" virt="non-virtual"><scope>advection_solver</scope><name>t</name></member>
+      <member refid="classadvection__solver_1aa1bef904601c5914ce932e0014be38fc" prot="private" virt="non-virtual"><scope>advection_solver</scope><name>tmax</name></member>
+      <member refid="classadvection__solver_1a2400d00f8f9fc7615d8844897a366161" prot="private" virt="non-virtual"><scope>advection_solver</scope><name>u</name></member>
+      <member refid="classadvection__solver_1a2d6d35539821e6163a3e03b41a8cb8bb" prot="private" virt="non-virtual"><scope>advection_solver</scope><name>upwinding</name></member>
+      <member refid="classadvection__solver_1aa26bddfe171d28f99ebd8ef869f3d9f9" prot="public" virt="non-virtual"><scope>advection_solver</scope><name>write_file</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

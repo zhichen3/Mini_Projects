@@ -29,7 +29,13 @@ author = 'Zhi Chen'
 # Add any Sphinx extension module names here, as strings. They can be
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
-extensions = ["sphinx.ext.autodoc" ,"breathe"
+extensions = [
+    "sphinx.ext.autodoc" ,
+    "breathe",
+    "sphinx.ext.mathjax",
+    "sphinx.ext.viewcode",
+    "sphinx.ext.graphviz",
+    "sphinx-prompt"
 ]
 
 # Add any paths that contain templates here, relative to this directory.
@@ -54,4 +60,4 @@ html_theme = 'sphinx_rtd_theme'
 html_static_path = ['_static']
 
 breathe_projects = {"advection": "../doxy_files/xml" }
-
+breathe_default_project = "advection"

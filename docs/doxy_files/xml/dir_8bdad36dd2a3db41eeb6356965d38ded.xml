@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="dir_8bdad36dd2a3db41eeb6356965d38ded" kind="dir">
+    <compoundname>/home/zhi/Github/Mini_Projects/one_d_advection</compoundname>
+    <innerfile refid="__1DGrid_8cpp">_1DGrid.cpp</innerfile>
+    <innerfile refid="__1DGrid_8H">_1DGrid.H</innerfile>
+    <innerfile refid="init__cond_8H">init_cond.H</innerfile>
+    <innerfile refid="solver_8cpp">solver.cpp</innerfile>
+    <innerfile refid="solver_8H">solver.H</innerfile>
+    <innerfile refid="unit__test_8cpp">unit_test.cpp</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/zhi/Github/Mini_Projects/one_d_advection/"/>
+  </compounddef>
+</doxygen>

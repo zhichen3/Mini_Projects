@@ -1,5 +1,5 @@
-Doxygen Files
-=============
+1-D advection
+==============
 
 .. doxygenindex::
    :project: advection

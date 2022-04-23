@@ -1,0 +1,192 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="unit__test_8cpp" kind="file" language="C++">
+    <compoundname>unit_test.cpp</compoundname>
+    <includes refid="solver_8H" local="yes">solver.H</includes>
+    <includes refid="__1DGrid_8H" local="yes">_1DGrid.H</includes>
+    <includes refid="init__cond_8H" local="yes">init_cond.H</includes>
+    <includes local="no">algorithm</includes>
+    <incdepgraph>
+      <node id="8">
+        <label>functional</label>
+      </node>
+      <node id="1">
+        <label>/home/zhi/Github/Mini_Projects/one_d_advection/unit_test.cpp</label>
+        <link refid="unit__test_8cpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>cmath</label>
+      </node>
+      <node id="7">
+        <label>cassert</label>
+      </node>
+      <node id="2">
+        <label>solver.H</label>
+        <link refid="solver_8H_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>string</label>
+      </node>
+      <node id="3">
+        <label>_1DGrid.H</label>
+        <link refid="__1DGrid_8H_source"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>vector</label>
+      </node>
+      <node id="11">
+        <label>init_cond.H</label>
+        <link refid="init__cond_8H_source"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>iostream</label>
+      </node>
+      <node id="5">
+        <label>algorithm</label>
+      </node>
+    </incdepgraph>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="unit__test_8cpp_1ae66f6b31b5ad750f1fe042a706a4e3d4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int main</definition>
+        <argsstring>()</argsstring>
+        <name>main</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+<para>Testing <ref refid="class__1DGrid" kindref="compound">_1DGrid</ref></para>
+<para>Test different advection solver</para>
+<para>Test linear advection solver with tophat initial cond</para>
+<para>Test nonlinear advection solver with tophat inital cond</para>
+        </inbodydescription>
+        <location file="/home/zhi/Github/Mini_Projects/one_d_advection/unit_test.cpp" line="6" column="5" bodyfile="/home/zhi/Github/Mini_Projects/one_d_advection/unit_test.cpp" bodystart="6" bodyend="100"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#include&quot;solver.H&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#include&quot;_1DGrid.H&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#include&quot;init_cond.H&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include&lt;algorithm&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>main(){<sp/></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>nx{128};</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>ng{2};</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>xmin{0.0};</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>xmax{1.0};</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"><sp/><sp/><ref refid="class__1DGrid" kindref="compound">_1DGrid</ref><sp/>g(nx,ng,xmin,xmax);</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Test<sp/>_1DGrid.cratch_array()</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/>std::vector&lt;double&gt;<sp/>vec(nx+2*ng,<sp/>0.0);</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>nx+2*ng;<sp/>++i){</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/>assert(vec[i]<sp/>==<sp/>g.scratch_array()[i]);</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Test<sp/>fill_BCs_diff<sp/>and<sp/>set_init<sp/>functions:</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>k{0.0};</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>it<sp/>=<sp/>vec.begin();<sp/>it<sp/>&lt;<sp/>vec.end();<sp/>++it){</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/>*it<sp/>+=<sp/>k;</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/>++k;</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/>g.set_init(vec);</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>nx+2*ng;<sp/>++i){</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/>assert(g.get_state()[i]<sp/>==<sp/>vec[i]);</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/>g.fill_BCs_diff();</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>n<sp/>=<sp/>0;<sp/>n<sp/>&lt;<sp/>ng;<sp/>++n){</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/>assert(g.get_state()[ng-n-1]<sp/>==<sp/>g.get_state()[ng+nx-n-2]);</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/>assert(g.get_state()[ng+nx+n]<sp/>==<sp/>g.get_state()[ng+n+1]);</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>u{1.0};</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>C{0.5};</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>num_periods{3.0};</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>use<sp/>lower<sp/>value<sp/>of<sp/>C<sp/>for<sp/>ftcs<sp/>method.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><ref refid="classadvection__solver" kindref="compound">advection_solver</ref><sp/>tophat_ftcs(g,<sp/>u,<sp/>0.001,<sp/>tophat,<sp/>num_periods,<sp/></highlight><highlight class="stringliteral">&quot;ftcs&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/>tophat_ftcs.solve();<sp/><sp/></highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/>assert(tophat_ftcs.find_error()<sp/>&lt;<sp/>50.0);</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"></highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><ref refid="classadvection__solver" kindref="compound">advection_solver</ref><sp/>tophat_upwinding(g,<sp/>u,<sp/>C,<sp/>tophat,<sp/>num_periods,<sp/></highlight><highlight class="stringliteral">&quot;upwinding&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/>tophat_upwinding.solve();<sp/><sp/></highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/>assert(tophat_upwinding.find_error()<sp/>&lt;<sp/>50.0);</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"></highlight></codeline>
+<codeline lineno="63"><highlight class="normal"></highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Predictor_protector<sp/>method,<sp/>for<sp/>predictor_corrector<sp/>with<sp/>piecewise_cosnt<sp/>slope<sp/>should<sp/>be<sp/>the<sp/>same<sp/>as<sp/>upwinding<sp/>method</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><ref refid="classadvection__solver" kindref="compound">advection_solver</ref><sp/>tophat_pc_pc(g,<sp/>u,<sp/>C,<sp/>tophat,<sp/>num_periods,<sp/></highlight><highlight class="stringliteral">&quot;predictor_corrector&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;piecewise_const&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/>tophat_pc_pc.solve();<sp/><sp/></highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/>assert(tophat_pc_pc.find_error()<sp/>-tophat_upwinding.find_error()<sp/>&lt;<sp/>0.001);</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"></highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><ref refid="classadvection__solver" kindref="compound">advection_solver</ref><sp/>tophat_pc_centered(g,<sp/>u,<sp/>C,<sp/>tophat,<sp/>num_periods,<sp/></highlight><highlight class="stringliteral">&quot;predictor_corrector&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;centered&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/>tophat_pc_centered.solve();<sp/><sp/></highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/>assert(tophat_pc_centered.find_error()<sp/>&lt;<sp/>50.0);<sp/><sp/></highlight></codeline>
+<codeline lineno="72"><highlight class="normal"></highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><ref refid="classadvection__solver" kindref="compound">advection_solver</ref><sp/>tophat_pc_minmod(g,<sp/>u,<sp/>C,<sp/>tophat,<sp/>num_periods,<sp/></highlight><highlight class="stringliteral">&quot;predictor_corrector&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;minmod&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/>tophat_pc_minmod.solve();<sp/><sp/></highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/>assert(tophat_pc_minmod.find_error()<sp/>&lt;<sp/>50.0);</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"></highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><ref refid="classadvection__solver" kindref="compound">advection_solver</ref><sp/>tophat_pc_MC(g,<sp/>u,<sp/>C,<sp/>tophat,<sp/>num_periods,<sp/></highlight><highlight class="stringliteral">&quot;predictor_corrector&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;MC&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/>tophat_pc_MC.solve();<sp/><sp/></highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/>assert(tophat_pc_MC.find_error()<sp/>&lt;<sp/>50.0);</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"></highlight></codeline>
+<codeline lineno="81"><highlight class="normal"></highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Method<sp/>of<sp/>lines<sp/>method:</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><ref refid="classadvection__solver" kindref="compound">advection_solver</ref><sp/>tophat_ml_pc(g,<sp/>u,<sp/>C,<sp/>tophat,<sp/>num_periods,<sp/></highlight><highlight class="stringliteral">&quot;method_of_lines&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;piecewise_const&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/>tophat_ml_pc.solve();<sp/><sp/></highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/>assert(tophat_ml_pc.find_error()<sp/>&lt;<sp/>50.0);</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"></highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><ref refid="classadvection__solver" kindref="compound">advection_solver</ref><sp/>tophat_ml_centered(g,<sp/>u,<sp/>C,<sp/>tophat,<sp/>num_periods,<sp/></highlight><highlight class="stringliteral">&quot;method_of_lines&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;centered&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/>tophat_ml_centered.solve();<sp/><sp/></highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/>assert(tophat_ml_centered.find_error()<sp/>&lt;<sp/>50.0);<sp/><sp/></highlight></codeline>
+<codeline lineno="91"><highlight class="normal"></highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><ref refid="classadvection__solver" kindref="compound">advection_solver</ref><sp/>tophat_ml_minmod(g,<sp/>u,<sp/>C,<sp/>tophat,<sp/>num_periods,<sp/></highlight><highlight class="stringliteral">&quot;method_of_lines&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;minmod&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/>tophat_ml_minmod.solve();<sp/><sp/></highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/>assert(tophat_ml_minmod.find_error()<sp/>&lt;<sp/>50.0);</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"></highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><ref refid="classadvection__solver" kindref="compound">advection_solver</ref><sp/>tophat_ml_MC(g,<sp/>u,<sp/>C,<sp/>tophat,<sp/>num_periods,<sp/></highlight><highlight class="stringliteral">&quot;method_of_lines&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;MC&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/>tophat_ml_MC.solve();<sp/><sp/></highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/>assert(tophat_ml_MC.find_error()<sp/>&lt;<sp/>50.0);</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"></highlight></codeline>
+<codeline lineno="100"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="/home/zhi/Github/Mini_Projects/one_d_advection/unit_test.cpp"/>
+  </compounddef>
+</doxygen>

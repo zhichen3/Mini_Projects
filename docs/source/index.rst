@@ -3,18 +3,25 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to Mini Computational Projects's documentation!
+Mini Computational Projects's documentation!
 =======================================================
 
+This is a collection of mini computational projects for practice purposes. Notes are provided from prof. Zingale `textbook <http://bender.astro.sunysb.edu/hydro_by_example/CompHydroTutorial.pdf>`_ and python `notebook <https://zingale.github.io/comp_astro_tutorial/intro.html>`_ files.
+
 .. toctree::
-   :maxdepth: 2
-   :caption: Contents:
+   :maxdepth: 1
+   :caption: Advection
+
+   lin_one_d_advection
+   nonlin_one_d_advection
+   one_d_advection_docs
 
 .. toctree::
    :maxdepth: 1
    :caption: API
 
-   doxygen_files
+   one_d_advection_code
+
 
 Indices and tables
 ==================
