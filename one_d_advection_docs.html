@@ -8,6 +8,7 @@
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="_static/graphviz.css" type="text/css" />
+      <link rel="stylesheet" href="_static/copybutton.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
@@ -16,6 +17,8 @@
         <script src="_static/jquery.js"></script>
         <script src="_static/underscore.js"></script>
         <script src="_static/doctools.js"></script>
+        <script src="_static/clipboard.min.js"></script>
+        <script src="_static/copybutton.js"></script>
         <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
@@ -109,10 +112,23 @@
 <li><p>If <code class="docutils literal notranslate"><span class="pre">num_periods</span></code> is a whole number <code class="docutils literal notranslate"><span class="pre">solver::solve()</span></code> also prints out the relative error between the final and the initial state.</p></li>
 <li><p>More accurate comparison is to plot the final and initial state. There is a pre-written python script that would plot all the dat files. Simply run the following command, where [dat files] are the dat files after running the advection solver. One could use <code class="docutils literal notranslate"><span class="pre">*.dat</span></code> to plot all the files.</p>
 <blockquote>
-<div></div></blockquote>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><style type="text/css">
+span.prompt1:before {
+  content: "$ ";
+}
+</style><span class="prompt1">./plot <span class="o">[</span>dat files<span class="o">]</span></span>
+</pre></div></div></div></blockquote>
 </li>
 </ul>
 <p>There is a pre-wrritten <em>unit_test.cpp</em> that tests this mechanism and how to use the code. Simply run this file and plot all the output files. Or the following command</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span class="prompt1">make unit_test <span class="nv">DEBUG</span><span class="o">=</span>TRUE</span>
+<span class="prompt1"></span>
+<span class="prompt1">./unit_test</span>
+<span class="prompt1"></span>
+<span class="prompt1">./plot *dat</span>
+</pre></div></div><div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+</pre></div>
+</div>
 </section>
 </section>
 
