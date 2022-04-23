@@ -22,7 +22,7 @@ Consider first order approximation on the left but second order approximation on
 
 .. math::
 
-   \frac{a^{n+1}_i - a^n_i}{\Delta t} = -u\frac{a^n_{i+1}} - a^n_{i-1}{2\Delta x}
+   \frac{a^{n+1}_i- a^n_i}{\Delta t} = -u\frac{a^n_{i+1} - a^n_{i-1}{2\Delta x}
 
 Rewriting it:
 
@@ -63,14 +63,20 @@ For FTCS:
 .. math::
 
    a^{n+1}_i = a^n_i - \frac{C}{2}(a^n_{i+1} - a^n_{i-1})
+
+.. math::
    
    A^{n+1}e^{Ii\theta} = A^ne^{Ii\theta} - \frac{C}{2} \left( A^ne^{I(i+1)\theta} - A^ne^{I(i-1)\theta} \right) 
 
+.. math::
+   
    A^{n+1} = A^n - \frac{C}{2} A^n \left( e^{I\theta}-e^{-I\theta} \right) 
+
+.. math::
    
    A^{n+1} = A^n\left( 1 - IC\sin{\theta} \right) 
 
-   The magnitude is therefore:
+The magnitude is therefore:
 
 .. math::
 

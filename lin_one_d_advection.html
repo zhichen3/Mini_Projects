@@ -95,7 +95,7 @@ The solution to the equation has form:</p>
 <h2>FTCS Method<a class="headerlink" href="#ftcs-method" title="Permalink to this headline"></a></h2>
 <p>Consider first order approximation on the left but second order approximation on the right:</p>
 <div class="math notranslate nohighlight">
-\[\frac{a^{n+1}_i - a^n_i}{\Delta t} = -u\frac{a^n_{i+1}} - a^n_{i-1}{2\Delta x}\]</div>
+\[\frac{a^{n+1}_i- a^n_i}{\Delta t} = -u\frac{a^n_{i+1} - a^n_{i-1}{2\Delta x}\]</div>
 <p>Rewriting it:</p>
 <div class="math notranslate nohighlight">
 \[a^{n+1}_i = a^n_i - \frac{C}{2} \left( a^n_{i+1} - a^n_{i-1} \right)\]</div>
@@ -118,7 +118,14 @@ FTCS method is also unstable.</p>
 \[\left| \frac{A^{n+1}}{A_n} \right| \leq 1\]</div>
 <p>For FTCS:</p>
 <div class="math notranslate nohighlight">
-\[ \begin{align}\begin{aligned}a^{n+1}_i = a^n_i - \frac{C}{2}(a^n_{i+1} - a^n_{i-1})\\A^{n+1}e^{Ii\theta} = A^ne^{Ii\theta} - \frac{C}{2} \left( A^ne^{I(i+1)\theta} - A^ne^{I(i-1)\theta} \right)\\A^{n+1} = A^n - \frac{C}{2} A^n \left( e^{I\theta}-e^{-I\theta} \right)\\A^{n+1} = A^n\left( 1 - IC\sin{\theta} \right)\\The magnitude is therefore:\end{aligned}\end{align} \]</div>
+\[a^{n+1}_i = a^n_i - \frac{C}{2}(a^n_{i+1} - a^n_{i-1})\]</div>
+<div class="math notranslate nohighlight">
+\[A^{n+1}e^{Ii\theta} = A^ne^{Ii\theta} - \frac{C}{2} \left( A^ne^{I(i+1)\theta} - A^ne^{I(i-1)\theta} \right)\]</div>
+<div class="math notranslate nohighlight">
+\[A^{n+1} = A^n - \frac{C}{2} A^n \left( e^{I\theta}-e^{-I\theta} \right)\]</div>
+<div class="math notranslate nohighlight">
+\[A^{n+1} = A^n\left( 1 - IC\sin{\theta} \right)\]</div>
+<p>The magnitude is therefore:</p>
 <div class="math notranslate nohighlight">
 \[\left| \frac{A^{n+1}}{A^n} \right|^2 = 1+C^2\sin^2{\theta} \geq 1\]</div>
 <p>Since its always <span class="math notranslate nohighlight">\(\geq 1\)</span>, there is no way to make it stable.</p>

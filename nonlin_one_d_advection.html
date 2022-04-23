@@ -94,10 +94,14 @@
 <p><span class="math notranslate nohighlight">\(f(a) = ua\)</span> is the flux of the quantity a. In conservation form, the time derivative of a quantity is related to the divergence of flux.</p>
 <p>For finite-volume discretization:</p>
 <div class="math notranslate nohighlight">
-\[ \begin{align}\begin{aligned}\frac{\partial a}{\partial t} = -\frac{\partial F(a)}{\partial x}\\\frac{1}{\Delta x} \int^{x_{i+1/2}}_{x_{i-1/2}} a_t dx = -\frac{1}{\Delta x}\int^{x_{i+1/2}}_{x_{i-1/2}} \frac{\partial}{\partial x} f(a) dx\\\frac{\partial}{\partial t} \langle a\rangle_i = -\frac{1}{\Delta x} \left\{[f(a)]_{i+1/2} - [f(a)]_{i-1/2} \right\}\end{aligned}\end{align} \]</div>
+\[\frac{\partial a}{\partial t} = -\frac{\partial F(a)}{\partial x}\]</div>
+<div class="math notranslate nohighlight">
+\[\frac{1}{\Delta x} \int^{x_{i+1/2}}_{x_{i-1/2}} a_t dx = -\frac{1}{\Delta x}\int^{x_{i+1/2}}_{x_{i-1/2}} \frac{\partial}{\partial x} f(a) dx\]</div>
+<div class="math notranslate nohighlight">
+\[\frac{\partial}{\partial t} \langle a\rangle_i = -\frac{1}{\Delta x} \left\{[f(a)]_{i+1/2} - [f(a)]_{i-1/2} \right\}\]</div>
 <p>We have two approaches:</p>
 <ul class="simple">
-<li><p>Predictor-corrector method or characteristic tracing method: Discretize <span class="math notranslate nohighlight">\(\partial a_i / \partial t$ as $(a_i^{n+1} -a^n_i)/\Delta t\)</span>. Then acheive second-order accuracy by evaluating the righthand of Equation above at midpoint in time <span class="math notranslate nohighlight">\((n+1/2)\)</span>.</p></li>
+<li><p>Predictor-corrector method or characteristic tracing method: Discretize <span class="math notranslate nohighlight">\(\partial a_i / \partial t\)</span> as <span class="math notranslate nohighlight">\((a_i^{n+1} -a^n_i)/\Delta t\)</span>. Then acheive second-order accuracy by evaluating the righthand of Equation above at midpoint in time <span class="math notranslate nohighlight">\((n+1/2)\)</span>.</p></li>
 <li><p>Method of lines: recognize PDE becomes ODE, then use standard ODE methods like Runge-Kutta to integrate the system in time.</p></li>
 </ul>
 </section>
@@ -109,13 +113,11 @@
 <p>To evaluate the fluxes at half-time:</p>
 <div class="math notranslate nohighlight">
 \[[f(a)]^{n+1/2}_{i+1/2} = f(a^{n+1/2}_{i+1/2})\]</div>
-<p>Construct a second-order accurate approximation to $a^{n+1/2}_{i+1/2}$ by Taylor expanding.
+<p>Construct a second-order accurate approximation to <span class="math notranslate nohighlight">\(a^{n+1/2}_{i+1/2}\)</span> by Taylor expanding.
 Notice there are two interface states that can be constructed, either using data from left, e.g. L, or right, e.g. R.</p>
 <p>Left:</p>
 <div class="math notranslate nohighlight">
-\[a^{n+1/2}_{i+1/2,L} &amp;= a^n_i + \left .\frac{\Delta x}{2}\frac{\partial a}{\partial x}\right|_i + \left. \frac{\Delta t}{2} \frac{\partial a}{\partial t}\right|_i + \mathcal{O}(\Delta x^2) + \mathcal{O}(\Delta t^2)
-&amp;= a^n_i + \left. \frac{\Delta x}{2}\frac{\partial a}{\partial x} \right|_i + \left. \frac{\Delta t}{2}\left(-u\frac{\partial a}{\partial x} \right|_i\right)+...
-&amp;= a^n_i + \left. \frac{\Delta x}{2}\left(1-\frac{\Delta t}{\Delta x}u\right) \frac{\partial a}{\partial x}\right|_i + ...\]</div>
+\[ \begin{align}\begin{aligned}a^{n+1/2}_{i+1/2,L} &amp;= a^n_i + \left .\frac{\Delta x}{2}\frac{\partial a}{\partial x}\right|_i + \left. \frac{\Delta t}{2} \frac{\partial a}{\partial t}\right|_i + \mathcal{O}(\Delta x^2) + \mathcal{O}(\Delta t^2)\\&amp;= a^n_i + \left. \frac{\Delta x}{2}\frac{\partial a}{\partial x} \right|_i + \left. \frac{\Delta t}{2}\left(-u\frac{\partial a}{\partial x} \right|_i\right)+...\\&amp;= a^n_i + \left. \frac{\Delta x}{2}\left(1-\frac{\Delta t}{\Delta x}u\right) \frac{\partial a}{\partial x}\right|_i + ...\end{aligned}\end{align} \]</div>
 <p>Right:</p>
 <div class="math notranslate nohighlight">
 \[a^{n+1/2}_{i+1/2,R} = a^n_{i+1} - \left. \frac{\Delta x}{2} \left( 1 + \frac{\Delta t}{\Delta x}u\right) \frac{\partial a}{\partial x}\right|_{i+1}\]</div>
@@ -130,10 +132,20 @@ Notice there are two interface states that can be constructed, either using data
 \[ \begin{align}\begin{aligned}a_{i+1/2,L} = a(x_i-\Delta x/2) = a_i + \frac{1}{2}\frac{\partial a_i}{\partial x} \Delta x\\a_{i+1/2,R} = a(x_i + \Delta x/2) = a_{i+1} - \frac{1}{2}\frac{\partial a_{i+1}}{\partial x}\Delta x\end{aligned}\end{align} \]</div>
 <p>And we use 4th order Runge Kutta to solve this ODE:</p>
 <div class="math notranslate nohighlight">
-\[ \begin{align}\begin{aligned}\frac{dy}{dt} = f(t,y)\\y_{n+1} = y_n + \frac{1}{6}dt(k_1+2k_2+2k_3+k_4)\\t_{n+1} = t_n + dt\end{aligned}\end{align} \]</div>
+\[\frac{dy}{dt} = f(t,y)\]</div>
+<div class="math notranslate nohighlight">
+\[y_{n+1} = y_n + \frac{1}{6}dt(k_1+2k_2+2k_3+k_4)\]</div>
+<div class="math notranslate nohighlight">
+\[t_{n+1} = t_n + dt\]</div>
 <p>with:</p>
 <div class="math notranslate nohighlight">
-\[ \begin{align}\begin{aligned}k_1 = f(t_n,y_n)\\k_2 = f(t_n+\frac{dt}{2}, y_n + dt\frac{k_1}{2})\\k_3 = f(t_n+\frac{dt}{2}, y_n + dt\frac{k_2}{2})\\k_4 = f(t_n + dt, y_n + dtk_3)\end{aligned}\end{align} \]</div>
+\[k_1 = f(t_n,y_n)\]</div>
+<div class="math notranslate nohighlight">
+\[k_2 = f(t_n+\frac{dt}{2}, y_n + dt\frac{k_1}{2})\]</div>
+<div class="math notranslate nohighlight">
+\[k_3 = f(t_n+\frac{dt}{2}, y_n + dt\frac{k_2}{2})\]</div>
+<div class="math notranslate nohighlight">
+\[k_4 = f(t_n + dt, y_n + dtk_3)\]</div>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>Note at least 2nd order Runge Kutta method must be used for this method.</p>
@@ -141,8 +153,8 @@ Notice there are two interface states that can be constructed, either using data
 </section>
 <section id="slope-choices">
 <h2>Slope choices<a class="headerlink" href="#slope-choices" title="Permalink to this headline"></a></h2>
-<p>From the two methods above, we left out the choices of the slope <span class="math notranslate nohighlight">\(\frac{\partial a_i}{\partial x\)</span>.
-We could set <span class="math notranslate nohighlight">\(\frac{\partial a_i}{\partial x = 0\)</span>, which implies a <em>picewise constant</em> slope. This method does not account for overshoot or undershoots at discontinuity states.</p>
+<p>From the two methods above, we left out the choices of the slope <span class="math notranslate nohighlight">\(\frac{\partial a_i}{\partial x}\)</span>.
+We could set <span class="math notranslate nohighlight">\(\frac{\partial a_i}{\partial x = 0}\)</span>, which implies a <em>picewise constant</em> slope. This method does not account for overshoot or undershoots at discontinuity states.</p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>If one uses piecewise constant slope for predictor corrector method, it gets back the same upwinding method.</p>
