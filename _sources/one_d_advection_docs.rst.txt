@@ -2,7 +2,7 @@
 1-D advection in C++
 ********************
 
-See advection under API for the implementation of solving both linear and nonlinear 1-D advection method in C++.
+See :ref:`1-D advection` under API for the implementation of solving both linear and nonlinear 1-D advection method in C++.
 
 Descriptions
 ==============
