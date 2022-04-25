@@ -24,7 +24,7 @@ Then we define the average of :math:`a` in a zone by integrating over volume:
 
 .. math::
 
-   a_{i,j} = \frac{1}\frac{\Delta x \Delta y} \int^{x_{i+1/2}}_{x_{i-1/2}} \int^{y_{j+1/2}}_{y_{j-1/2}} a(x,y,t) dxdy
+   a_{i,j} = \frac{1}{\Delta x \Delta y} \int^{x_{i+1/2}}_{x_{i-1/2}} \int^{y_{j+1/2}}_{y_{j-1/2}} a(x,y,t) dxdy
 
 Integrating over the conservative form:
 
