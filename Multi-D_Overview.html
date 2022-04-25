@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Overview &mdash; Mini Projects  documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/graphviz.css" type="text/css" />
+      <link rel="stylesheet" href="_static/copybutton.css" type="text/css" />
+      <link rel="stylesheet" href="_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" type="text/css" />
+      <link rel="stylesheet" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" type="text/css" />
+      <link rel="stylesheet" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/clipboard.min.js"></script>
+        <script src="_static/copybutton.js"></script>
+        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Dimensional Splitting" href="dimensional_splitting.html" />
+    <link rel="prev" title="1-D advection in C++" href="one_d_advection_docs.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> Mini Projects
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">1-D Advection</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="lin_one_d_advection.html">Linear 1-D Advection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nonlin_one_d_advection.html">Nonlinear 1-D advection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="one_d_advection_docs.html">1-D advection in C++</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Multi Dimensional Advection</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Overview</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#theory">Theory</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="dimensional_splitting.html">Dimensional Splitting</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="one_d_advection_code.html">1-D advection</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Mini Projects</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Overview</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/Multi-D_Overview.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="overview">
+<h1>Overview<a class="headerlink" href="#overview" title="Permalink to this headline"></a></h1>
+<section id="theory">
+<h2>Theory<a class="headerlink" href="#theory" title="Permalink to this headline"></a></h2>
+<p>Two Dimensional advection equation:</p>
+<div class="math notranslate nohighlight">
+\[a_t + ua_x + va_y = 0\]</div>
+<p>where <span class="math notranslate nohighlight">\(u\)</span> is the velocity in the x-direction and <span class="math notranslate nohighlight">\(v\)</span> is the velocity in the y-direction. Let <span class="math notranslate nohighlight">\(a_{i,j}\)</span> denote the average of <span class="math notranslate nohighlight">\(a(x,y,t)\)</span> in zone <span class="math notranslate nohighlight">\(i,j\)</span>. Extend the domain with a perimeter of ghost cells to set the boundary condtions.</p>
+<p>To put everything in Conservative form:</p>
+<div class="math notranslate nohighlight">
+\[a_t + (ua)_x + (va)_y = 0\]</div>
+<p>Where <span class="math notranslate nohighlight">\(ua\)</span> and <span class="math notranslate nohighlight">\(va\)</span> are the flux of advection.</p>
+<p>Then we define the average of <span class="math notranslate nohighlight">\(a\)</span> in a zone by integrating over volume:</p>
+<div class="math notranslate nohighlight">
+\[a_{i,j} = \frac{1}\frac{\Delta x \Delta y} \int^{x_{i+1/2}}_{x_{i-1/2}} \int^{y_{j+1/2}}_{y_{j-1/2}} a(x,y,t) dxdy\]</div>
+<p>Integrating over the conservative form:</p>
+<div class="math notranslate nohighlight">
+\[\frac{1}{\Delta x \Delta y} \int^{x_{i+1/2}}_{x_{i-1/2}} \int^{y_{j+1/2}}_{y_{j-1/2}} (a_t+(ua)_x+(va)_y) dxdy = 0\]</div>
+<p>Or using the divergence theorem:</p>
+<div class="math notranslate nohighlight">
+\[\frac{\partial a_{i,j}}{\partial t} = -\frac{1}{\Delta x \Delta y}\left \{ \int^{y_{j+1/2}}_{y_{j-1/2}} \left[ (ua)_{i+1/2,j} - (ua)_{i-1/2,j} \right] dy + \int^{x_{i+1/2}}_{x_{i-1/2}} \left[(va)_{i,j+1/2} - (va)_{i,j-1/2}   \right]dx    \right \}\]</div>
+<p>Then redefine <span class="math notranslate nohighlight">\(\frac{\partial a}{\partial t}\)</span> using Euler equation:</p>
+<div class="math notranslate nohighlight">
+\[\frac{\partial a}{\partial t} = \frac{a^{n+1}_{i,j} - a^{n}_{i,j}}{\partial t}\]</div>
+<p>Define the flux through the interface as the average over the face of that interface and time:</p>
+<ul>
+<li><p>x-face:</p>
+<div class="math notranslate nohighlight">
+\[\langle(ua)_{i+1/2,j}\rangle_{(t)} = \frac{1}{\Delta y \Delta t} \int^{t^{n+1}}_{t^n} \int^{y_{j+1/2}}_{y_{j-1/2}} (ua)_{i+1/2,j} dydt\]</div>
+</li>
+<li><p>y-face:</p>
+<div class="math notranslate nohighlight">
+\[\langle (va)_{i,j+1/2} \rangle_{(t)} = \frac{1}{\Delta x \Delta t} \int^{t^{n+1}}_{t^n} \int^{x_{i+1/2}}_{x_{i-1/2}} (va)_{i+1/2,j} dydt\]</div>
+</li>
+</ul>
+<p>For second-ortder accurate in time, replace the average in time with the flux at the midpoint in time and the average over the face with the flux at the center of the face, i.e:</p>
+<div class="math notranslate nohighlight">
+\[\langle(ua)_{i+1/2,j}\rangle \approx (ua)^{u+1/2}_{i+1/2,j}\]</div>
+<p>Thus, which is the same as finite volume method but an additional direction term:</p>
+<p>There are a few approaches:
+1. Dimensional Splitting (finite volume): treat each dimension to be operated independently from the other
+2. Unsplit (finite volume): Treat each dimension to be dependent on the other, and is more accurate and less susceptible to grid effects
+3. Method of lines: Treat it as ODE and solve using ODE solvers like Runge-Kutta.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="one_d_advection_docs.html" class="btn btn-neutral float-left" title="1-D advection in C++" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="dimensional_splitting.html" class="btn btn-neutral float-right" title="Dimensional Splitting" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Zhi Chen.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

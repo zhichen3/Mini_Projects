@@ -10,12 +10,19 @@ This is a collection of mini computational projects for practice purposes. Notes
 
 .. toctree::
    :maxdepth: 1
-   :caption: Advection
+   :caption: 1-D Advection
 
    lin_one_d_advection
    nonlin_one_d_advection
    one_d_advection_docs
 
+.. toctree::
+   :maxdepth: 1
+   :caption: Multi Dimensional Advection
+
+   Multi-D_Overview
+   dimensional_splitting
+   
 .. toctree::
    :maxdepth: 1
    :caption: API

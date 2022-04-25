@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dimensional Splitting &mdash; Mini Projects  documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/graphviz.css" type="text/css" />
+      <link rel="stylesheet" href="_static/copybutton.css" type="text/css" />
+      <link rel="stylesheet" href="_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" type="text/css" />
+      <link rel="stylesheet" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" type="text/css" />
+      <link rel="stylesheet" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/clipboard.min.js"></script>
+        <script src="_static/copybutton.js"></script>
+        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="1-D advection" href="one_d_advection_code.html" />
+    <link rel="prev" title="Overview" href="Multi-D_Overview.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> Mini Projects
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">1-D Advection</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="lin_one_d_advection.html">Linear 1-D Advection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nonlin_one_d_advection.html">Nonlinear 1-D advection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="one_d_advection_docs.html">1-D advection in C++</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Multi Dimensional Advection</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="Multi-D_Overview.html">Overview</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Dimensional Splitting</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#strang-splitting">Strang Splitting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#riemann-problem">Riemann Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#timestep">Timestep</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="one_d_advection_code.html">1-D advection</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Mini Projects</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Dimensional Splitting</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/dimensional_splitting.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="dimensional-splitting">
+<h1>Dimensional Splitting<a class="headerlink" href="#dimensional-splitting" title="Permalink to this headline"></a></h1>
+<section id="strang-splitting">
+<h2>Strang Splitting<a class="headerlink" href="#strang-splitting" title="Permalink to this headline"></a></h2>
+<p>We alternate the order of the dimensiona updates in each timestep.</p>
+<p>Use <span class="math notranslate nohighlight">\(\star\)</span> to represent an intermediate state. Then the process of updating a timestep consists of two parts:</p>
+<div class="math notranslate nohighlight">
+\[ \begin{align}\begin{aligned}a^\star_{i,j} = a^n_{i,j} - \Delta t \frac{ua^{n+1/2}_{i+1/2,j}-ua^{n+1/2}_{i-1/2,j}}{\Delta x}\\a^{n+1}_{i,j} = a^\star_{i,j} - \Delta t \frac{va^{\star,n+1/2}_{i,j+1/2} - va^{\star, n+1/2}_{i,j-1/2}}{\Delta y}\end{aligned}\end{align} \]</div>
+<p>Here we do update in the x-direction first and stored to the intermediate state <span class="math notranslate nohighlight">\(a^\star_{i,j}\)</span>. Then the state is updated again using information in the y-direction with state <span class="math notranslate nohighlight">\(a^\star_{i,j}\)</span>.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>One must alternate the direction for each timestep, i.e. x-y then y-x.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Here we doing two different updates independently, i.e. solving two 1-D advection equations:</p>
+<div class="math notranslate nohighlight">
+\[ \begin{align}\begin{aligned}a_t + ua_x = 0\\a_t + va_y = 0\end{aligned}\end{align} \]</div>
+</div>
+</section>
+<section id="riemann-problem">
+<h2>Riemann Problem<a class="headerlink" href="#riemann-problem" title="Permalink to this headline"></a></h2>
+<p>For <span class="math notranslate nohighlight">\(u &gt; 0\)</span>, i.e. traveling from left to right:</p>
+<div class="math notranslate nohighlight">
+\[a^{n+1/2}_{i+1/2,L}  = a^n_i + \left. \frac{\Delta x}{2}\left(1-\frac{\Delta t}{\Delta x}u\right) \frac{\partial a}{\partial x}\right|_i + ...\]</div>
+<p>If <span class="math notranslate nohighlight">\(u &lt; 0\)</span>, i.e. traveling from right to left:</p>
+<div class="math notranslate nohighlight">
+\[a^{n+1/2}_{i+1/2,R} = a^n_{i+1} - \left. \frac{\Delta x}{2} \left( 1 + \frac{\Delta t}{\Delta x}u\right) \frac{\partial a}{\partial x}\right|_{i+1}\]</div>
+<p>The same appplies to y-direction.</p>
+</section>
+<section id="timestep">
+<h2>Timestep<a class="headerlink" href="#timestep" title="Permalink to this headline"></a></h2>
+<p>Define <span class="math notranslate nohighlight">\(\Delta t\)</span> for multi-dimensional advection:</p>
+<div class="math notranslate nohighlight">
+\[\Delta t = C \left( \sum^d_{i=1} \frac{|U \cdot e_d|}{\Delta x_d} \right)^{-1}\]</div>
+<p>where U is <span class="math notranslate nohighlight">\(|U \cdot e_d|\)</span> is the velocity of magnitude of a direction <span class="math notranslate nohighlight">\(d\)</span>.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="Multi-D_Overview.html" class="btn btn-neutral float-left" title="Overview" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="one_d_advection_code.html" class="btn btn-neutral float-right" title="1-D advection" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Zhi Chen.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
