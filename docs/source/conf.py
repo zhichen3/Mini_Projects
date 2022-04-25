@@ -62,5 +62,5 @@ html_theme = 'sphinx_rtd_theme'
 # so a file named "default.css" will overwrite the builtin "default.css".
 html_static_path = ['_static']
 
- breathe_projects = {"advection": "../doxy_files/xml" }
- breathe_default_project = "advection"
+breathe_projects = {"advection": "../doxy_files/xml" }
+breathe_default_project = "advection"
