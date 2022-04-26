@@ -5,25 +5,69 @@
 #include <functional>
 #include <string>
 
+///
+/// Advection solver class
+///
 class Advection_solver{
 private:
+  ///
+  /// Creating a 2D grid using _2DGrid class
+  ///
   _2DGrid grid;
+
+  ///
+  /// velocity of advection in x-direction
+  ///
   double u;
+
+  ///
+  /// velocity of advection in y-direction
+  ///
   double v;
-  double C;
-  //  double num_periods;
-  double t;
-  double tmax;
+
   
+  double C;
+  
+  //  double num_periods;
+
+  ///
+  /// Current time of integration
+  ///
+  double t;
+
+  ///
+  /// Max time of integration
+  ///
+  double tmax;
+
+  ///
+  /// function for initial condition that takes in physical domain x and y and returns the initial advection state
+  ///
   std::function<_2DArray(const std::vector<double>&, const std::vector<double>&)> init_cond;
 
+  ///
+  /// Advection method of choice
+  ///
   std::string method;
+
+  ///
+  /// slope method of choice
+  ///
   std::string slope_method;
 
+  ///
+  /// timestep
+  ///
   double dt;
+
+  ///
+  /// initial timestep
+  ///
   double dt_init;
 
-  // Requires C<1 for stability
+  ///
+  /// Strang-splitting method. Requires C<1 for stability
+  ///
   void split();
 
   
@@ -44,7 +88,7 @@ public:
     assert(grid.ng > 1);
 
     dt = _C/(_u/grid.dx + _v/grid.dy); 
-    dta_init = dt;
+    dt_init = dt;
   }
 
   // general routine for solving 2D advection

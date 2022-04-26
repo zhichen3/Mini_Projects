@@ -3,7 +3,7 @@
 
 _2DArray _2DGrid::scratch_array(){
   
-  _2DArray v_out(nx + 2*ng, ny+2*ny, 0.0);
+  _2DArray v_out(nx + 2*ng, ny+2*ng, 0.0);
   return v_out;
 }
 
@@ -43,12 +43,3 @@ void _2DGrid::set_init(_2DArray init_vec){
   state_init = init_vec;
 }
 
-
-// std::ostream& operator<< (std::ostream& os, const FDGrid& grid){
-  
-//   for (auto g : grid.x){
-//     os << std::setw(12) << g;
-//   }
-//   os << std::endl;
-//   return os;
-//}

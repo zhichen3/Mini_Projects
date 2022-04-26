@@ -5,7 +5,7 @@
 
 int main() {
 
-  int nx{64};
+  int nx{128};
   int ny{64};
   _2DGrid grid(nx,ny);
   _2DArray tophat_state = tophat(grid.get_x(), grid.get_y());

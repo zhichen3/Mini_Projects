@@ -1,6 +1,6 @@
 #include "solver.H"
 
-void Advection_solver::solver(){
+void Advection_solver::solve(){
   std::ofstream of;
   std::string init_filename{"init_cond.dat"};
   std::string fin_filename{};
@@ -40,8 +40,8 @@ void Advection_solver::write_file(std::string fname){
   std::ofstream of;
   of.open(fname);
 
-  for (int i = grid.ilo_y; j < grid.ilo_y+1; ++i){
-    for (int j = grid.ilo_x; i < grid.ilo_x+1; ++j){
+  for (int i = grid.ilo_y; i < grid.ilo_y+1; ++i){
+    for (int j = grid.ilo_x; j < grid.ilo_x+1; ++j){
       of << state(i,j) << " ";
     }
     of << std::endl;
