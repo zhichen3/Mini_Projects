@@ -22,7 +22,7 @@ Consider first order approximation on the left but second order approximation on
 
 .. math::
 
-   \frac{a^{n+1}_i- a^n_i}{\Delta t} = -u\frac{a^n_{i+1} - a^n_{i-1}{2\Delta x}
+   \frac{a^{n+1}_i- a^n_i}{\Delta t} = -u\frac{a^n_{i+1} - a^n_{i-1}}{2\Delta x}
 
 Rewriting it:
 
