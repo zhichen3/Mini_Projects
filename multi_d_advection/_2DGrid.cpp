@@ -9,19 +9,19 @@ _2DArray _2DGrid::scratch_array(){
 
 // This seems to be better
 void _2DGrid::fill_BCs_diff(){
-  for (int i = 0; i < ihi_y ; ++i){
+  for (int j = 0; j < ihi_y ; ++j){
     for (int n = 0; n < ng; ++n)
       {
-	state(i, ilo_x-n-1) = state(i, ihi_x-n-1);
-	state(i, ihi_x+n+1) = state(i, ilo_x+n+1);
+	state(j, ilo_x-n-1) = state(j, ihi_x-n-1);
+	state(j, ihi_x+n+1) = state(j, ilo_x+n+1);
       }
   }
 
-  for (int j = 0; j < ihi_x ; ++j){
+  for (int i = 0; i < ihi_x ; ++i){
     for (int n = 0; n < ng; ++n)
       {
-	state(ilo_y-n-1, j) = state(ihi_y-n-1, j);
-	state(ihi_y+n+1, j) = state(ilo_y+n+1, j);
+	state(ilo_y-n-1, i) = state(ihi_y-n-1, i);
+	state(ihi_y+n+1, i) = state(ilo_y+n+1, i);
       }
   }
 }

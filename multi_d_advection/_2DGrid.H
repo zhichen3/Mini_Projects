@@ -47,22 +47,22 @@ private:
   int ny;
 
   ///
-  /// Lower bound point of the domain excluding ghost points
+  /// Lower bound point of the domain, x-indice, excluding ghost points
   ///
   int ilo_x;
 
   ///
-  /// high bound point of the domain excluding ghost point
+  /// high bound point of the domain, x-indice, excluding ghost point
   ///
   int ihi_x; 
 
   ///
-  /// low bound point of the domain excluding ghost points
+  /// low bound point of the domain, y-indice, excluding ghost points
   ///
   int ilo_y;
 
   ///
-  /// high bound point of the domain excluding ghost point
+  /// high bound point of the domain, y-indice,  excluding ghost point
   ///
   int ihi_y;
 
@@ -84,7 +84,7 @@ private:
   ///
   /// Initial state of advection
   _2DArray state_init; 
-  _2DArray temp_state;
+  //  _2DArray temp_state;
 
   ///
   /// Physical x-coordinate including ghost points
@@ -117,8 +117,8 @@ public:
 
      // set initial state to 0
      state(_ny+2*_ng, _nx+2*_ng, 0.0),
-     state_init(_ny+2*_ng, _nx+2*_ng, 0.0),
-     temp_state(_ny+2*_ng, _nx+2*_ng, 0.0)
+     state_init(_ny+2*_ng, _nx+2*_ng, 0.0)
+     //     temp_state(_ny+2*_ng, _nx+2*_ng, 0.0)
   {
     assert (_nx > 0);
     assert (_ny > 0);
@@ -157,7 +157,7 @@ public:
   inline _2DArray get_state(){
     return state;
   }
-
+  
   inline std::vector<double> get_x(){
     return x;
   }
@@ -165,6 +165,7 @@ public:
   inline std::vector<double> get_y(){
     return y;
   }
+
   
   /// make advection_solver class a friend of 2DGrid
    friend class Advection_solver;

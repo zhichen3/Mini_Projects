@@ -21,11 +21,13 @@ private:
   double u;
 
   ///
-  /// velocity of advection in y-direction
+  /// velocity of advection in y-direction, since y axis counts from top to bottom, need to negate the input y velocity
   ///
   double v;
 
-  
+  ///
+  /// Courant number
+  ///
   double C;
   
   //  double num_periods;
@@ -69,12 +71,15 @@ private:
   /// Strang-splitting method. Requires C<1 for stability
   ///
   void split();
-
+  double rhs(const int j, const int i, const bool x_update);
+  double riemann(const int j, const int i, const bool x_update);
+  double slope(const int j, const int i, const bool x_update);
   
 public:
   Advection_solver (_2DGrid _grid, double _u, double _v, double _C, double _tmax, std::function<_2DArray(const std::vector<double>&, const std::vector<double>&)> _init_cond, const std::string& _method="split", const std::string& _slope_method="centered")
     : grid{_grid},
       u{_u},
+      v{-_v},
       C{_C},
       t{0.0},
       tmax{_tmax},
@@ -97,11 +102,13 @@ public:
   // print solution
   void print_state();
 
+  
   // Find the error between the initial and final state for a square physical domain, same velocity for u and v, and integer number of periods.
-  double find_error();
+  //  double find_error();
 
   // Write state data to file.
-  void write_file(std::string fname);
+  void write_file(const std::string& fname);
+
 };
 
 

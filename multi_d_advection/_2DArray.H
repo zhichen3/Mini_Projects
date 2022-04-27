@@ -11,8 +11,8 @@
 class _2DArray {
 
 private:
-  std::size_t _rows;
-  std::size_t _cols;
+  int _rows;
+  int _cols;
   std::vector<double> _data;
 
 public:
@@ -20,7 +20,7 @@ public:
   ///
   /// Parametric constructor that takes rows, cols and initial value.
   ///
-  _2DArray(std::size_t rows, std::size_t cols, double val=0.0)
+  _2DArray(int rows, int cols, double val=0.0)
     : _rows{rows},
       _cols{cols},
       _data(rows * cols, val)
@@ -32,17 +32,17 @@ public:
   ///
   /// Return number of columns
   ///
-  inline std::size_t ncols() const {return _cols;}
+  inline int ncols() const {return _cols;}
 
   ///
   /// Return number of rows
   ///
-  inline std::size_t nrows() const {return _rows;}
+  inline int nrows() const {return _rows;}
 
   ///
   /// Return the size of the 2D array
   ///
-  inline std::size_t size() const {return _cols+_rows;}
+  inline int size() const {return _cols+_rows;}
 
   ///
   /// Return array number using array(row,col);
@@ -67,8 +67,8 @@ public:
   /// Prints out the array
   ///
   friend inline std::ostream& operator << (std::ostream& os, const _2DArray & a){
-    for (std::size_t row=0; row < a.nrows(); ++row){
-      for (std::size_t col=0; col < a.ncols(); ++col){
+    for (int row=0; row < a.nrows(); ++row){
+      for (int col=0; col < a.ncols(); ++col){
 	os << a(row,col) << " ";
       }
       os << std::endl;
