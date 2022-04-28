@@ -345,7 +345,7 @@ double advection_solver::slope(int ind)
 
 
 
-
+ 
 void advection_solver:: print_state(){
 
   for (auto g: grid.state){
