@@ -18,7 +18,7 @@ This is a collection of mini computational projects for practice purposes. Notes
 
 .. toctree::
    :maxdepth: 1
-   :caption: Automating Compiling
+   :caption: Multi Dimensional Advection
 	     
    Multi-D_Overview
    dimensional_splitting
