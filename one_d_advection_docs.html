@@ -127,14 +127,16 @@ span.prompt1:before {
 </style><span class="prompt1">./plot <span class="o">[</span>dat files<span class="o">]</span></span>
 </pre></div></div></div></blockquote>
 </li>
+<li><p>One can also do a runtime visualization of the data. In order to create runtime data after each time step, set <code class="docutils literal notranslate"><span class="pre">runtime_dat</span> <span class="pre">=</span> <span class="pre">true</span></code> for <code class="docutils literal notranslate"><span class="pre">advection_solver</span></code>. runtime data are stored inside folder <code class="docutils literal notranslate"><span class="pre">runtime_data</span></code>. See the visual by the following command:</p></li>
 </ul>
-<p>There is a pre-wrritten <em>unit_test.cpp</em> that tests this mechanism and how to use the code. Simply run this file and plot all the output files. Or the following command</p>
+<p>There is a pre-wrritten <code class="docutils literal notranslate"><span class="pre">unit_test.cpp</span></code> that tests this mechanism and how to use the code. Simply run this file and plot all the output files. Or the following command</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span class="prompt1">make unit_test <span class="nv">DEBUG</span><span class="o">=</span>TRUE</span>
 <span class="prompt1"></span>
 <span class="prompt1">./unit_test</span>
 <span class="prompt1"></span>
 <span class="prompt1">./plot *dat</span>
-</pre></div></div></section>
+</pre></div></div><p>There is also a pre-written <code class="docutils literal notranslate"><span class="pre">runtime_test.cpp</span></code> used for testing runtime visualization.</p>
+</section>
 </section>
 
 
