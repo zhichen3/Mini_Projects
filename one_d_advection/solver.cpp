@@ -3,6 +3,7 @@
 #include <iomanip>
 #include <algorithm>
 #include <string>
+#include <filesystem>
 
 // Define a helper function minmod:
 double minmod(double a, double b){
@@ -30,7 +31,7 @@ void advection_solver::solve(){
   grid.set_init(init_cond(grid.x));
   t = 0.0;
   dt = dt_init;
-  C = u*dt/grid.dx;
+  C = std::abs(u)*dt/grid.dx;
     
   std::cout << "Integration starting, writing to file...." << std::endl;
 
@@ -55,8 +56,10 @@ void advection_solver::solve(){
     }
   
   std::cout << "Integration ended, writing to file...." << std::endl;
-  
-  write_file(fin_filename);
+
+  if (!runtime_dat){
+    write_file(fin_filename);
+  }
   
   if (num_periods - std::trunc(num_periods) == 0.0){
     if (method == "ftcs" || method == "upwinding"){
@@ -87,7 +90,7 @@ void advection_solver::ftcs(){
     //take care of last step where t+dt > tmax
     if ( t+dt > tmax){
       dt = tmax - t;
-      C = u*dt/grid.dx;
+      C = std::abs(u)*dt/grid.dx;
     }
         
     // update states inside physical domain
@@ -99,6 +102,12 @@ void advection_solver::ftcs(){
     // update boundary ghost cells using updated physical domain 
     grid.fill_BCs_diff();
     t += dt;
+
+    if (runtime_dat){ 
+      std::string fname = "runtime_data/" + method + "_" + slope_method + "_" + std::to_string(t) + ".dat";
+      write_file(fname);
+    }
+
   }
 }
 
@@ -119,7 +128,7 @@ void advection_solver::upwinding(){
     //take care of last step where t+dt > tmax
     if ( t+dt > tmax){
       dt = tmax - t;
-      C = u*dt/grid.dx;
+      C = std::abs(u)*dt/grid.dx;
     }
 
     // state update, loop over physical domain
@@ -131,6 +140,12 @@ void advection_solver::upwinding(){
     grid.state = state_new;
     t += dt;
     grid.fill_BCs_diff();
+
+    if (runtime_dat){ 
+      std::string fname = "runtime_data/" + method + "_" + slope_method + "_" + std::to_string(t) + ".dat";
+      write_file(fname);
+    }
+
   }
 }
 
@@ -147,7 +162,7 @@ void advection_solver::predictor_corrector()
   while (t < tmax){
     if (t+dt > tmax){
       dt = tmax - t;
-      C = u*dt/grid.dx;
+      C = std::abs(u)*dt/grid.dx;
     }
 
     // for (int i = grid.ilo-grid.ng+1; i < grid.ihi+grid.ng; ++i){
@@ -158,6 +173,12 @@ void advection_solver::predictor_corrector()
     grid.state = state_new;
     grid.fill_BCs_diff();
     t += dt;
+
+    if (runtime_dat){ 
+      std::string fname = "runtime_data/" + method + "_" + slope_method + "_" + std::to_string(t) + ".dat";
+      write_file(fname);
+    }
+
   }
 }
 
@@ -178,7 +199,7 @@ void advection_solver:: method_of_lines()
   while (t < tmax){
     if (t + dt > tmax){
       dt= tmax - t;
-      C = u*dt/grid.dx;
+      C = std::abs(u)*dt/grid.dx;
     }
     
     // RK4
@@ -244,6 +265,11 @@ void advection_solver:: method_of_lines()
     grid.fill_BCs_diff();
     t += dt;
     init_state = grid.state;
+
+    if (runtime_dat){ 
+      std::string fname = "runtime_data/" + method + "_" + slope_method + "_"+ std::to_string(t) + ".dat";
+      write_file(fname);
+    }
 
   }
 }
@@ -381,6 +407,9 @@ double advection_solver:: find_error(){
 void advection_solver::write_file(std::string fname){
   std:: ofstream of;
   of.open(fname);
+
+  of << t << std::endl;
+  
   for (int i = grid.ilo; i < grid.ihi+1; ++i){
     of << grid.x[i] << std::setw(15)
        << grid.state[i] << std::endl;

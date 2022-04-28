@@ -57,6 +57,11 @@ private:
   std::string slope_method;
 
   ///
+  /// Set this to true to allow runtime advection states, which then can be used for doing runtime visualization.
+  ///
+  bool runtime_dat;
+  
+  ///
   /// current time step
   ///
   double dt;
@@ -70,7 +75,7 @@ private:
   /// end time of advection
   ///
   double tmax;
-
+  
   ///
   /// Linear advection method: ftcs method. Smaller C works better
   ///
@@ -107,11 +112,12 @@ private:
   ///
   double slope(int ind);
 
+  
 public:
   ///
   /// Constructing the advection solver
   ///
-  advection_solver (_1DGrid _grid, double _u, double _C, std::function<std::vector<double>(const std::vector<double>& )> _init_cond, double _num_periods=1.0, const std::string& _method="upwinding", const std::string& _slope_method="centered")
+  advection_solver (_1DGrid _grid, double _u, double _C, std::function<std::vector<double>(const std::vector<double>& )> _init_cond, double _num_periods=1.0, const std::string& _method="upwinding", const std::string& _slope_method="centered",const bool _runtime_dat = false)
     : grid{_grid},
       u{_u},
       C{_C},
@@ -119,7 +125,8 @@ public:
       t{0.0},  
       init_cond{_init_cond},
       method{_method},
-      slope_method{_slope_method}
+      slope_method{_slope_method},
+      runtime_dat{_runtime_dat}
   {
     // assert correct advection methods
     assert(_method == "ftcs" || _method == "upwinding" || _method == "predictor_corrector" || _method == "method_of_lines");

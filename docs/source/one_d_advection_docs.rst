@@ -33,8 +33,13 @@ To verify the validity of the advection solver, states shoudl return back to the
     .. prompt:: bash
 
        ./plot [dat files]
-      
-There is a pre-wrritten *unit_test.cpp* that tests this mechanism and how to use the code. Simply run this file and plot all the output files. Or the following command
+
+* One can also do a runtime visualization of the data. In order to create runtime data after each time step, set ``runtime_dat = true`` for ``advection_solver``. runtime data are stored inside folder ``runtime_data``. See the visual by the following command:
+
+  .. prompt:: bash
+     ./plot runtime_data/*.dat --animate
+       
+There is a pre-wrritten ``unit_test.cpp`` that tests this mechanism and how to use the code. Simply run this file and plot all the output files. Or the following command
 
 .. prompt:: bash
 
@@ -44,3 +49,4 @@ There is a pre-wrritten *unit_test.cpp* that tests this mechanism and how to use
 
    ./plot *dat
 
+There is also a pre-written ``runtime_test.cpp`` used for testing runtime visualization.

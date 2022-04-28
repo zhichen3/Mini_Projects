@@ -9,7 +9,7 @@ HEADERS := $(wildcard *.H)
 OBJECTS := $(SOURCES:.cpp=.o)
 
 # Multiple main functions
-MAINS := unit_test.o 
+MAINS := unit_test.o runtime_test.o
 
 # Filter out mains from objects
 OBJECTS := $(filter-out $(MAINS), $(OBJECTS))
@@ -44,8 +44,10 @@ endif
 unit_test: unit_test.o ${OBJECTS}
 	g++ -o $@ unit_test.o ${OBJECTS}
 
+runtime_test: runtime_test.o ${OBJECTS}
+	g++ -o $@ runtime_test.o ${OBJECTS}
 
 #all: 
 
 clean:
-	rm -f *.o unit_test  *~ *.dat
+	rm -f *.o unit_test  *~ *.dat runtime_test
