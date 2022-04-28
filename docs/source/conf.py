@@ -19,7 +19,7 @@ subprocess.call("cd ..; doxygen", shell =True)
 
 # -- Project information -----------------------------------------------------
 
-project = 'Mini Computational Projects'
+project = 'Mini Projects'
 copyright = '2022, Zhi Chen'
 author = 'Zhi Chen'
 
