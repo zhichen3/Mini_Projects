@@ -67,7 +67,7 @@ private:
   std::vector<double> temp_state;
 
   ///
-  ///physical x-coordinate including ghost points
+  ///physical x-coordinate inccluding ghost points
   ///
   std::vector<double> x; 
 
