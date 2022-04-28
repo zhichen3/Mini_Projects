@@ -167,6 +167,6 @@ Then:
 
    \left. \frac{\partial a}{\partial x}\right|_i = 
    \begin{array}{ll}
-   \textrm{min} \left[\frac{\left| a_{i+1}-a_{i-1} \right|}{2\Delta x} , 2\   frac{\left| a_{i+1} - a_i \right|}{\Delta x}, 2 \frac{\left| a_i - a_{i-    1} \right|}{\Delta x} \right] \textrm{sign} (a_{i+1}-a_{i-1}) & \xi > 0 \\
+   \textrm{min} \left[\frac{\left| a_{i+1}-a_{i-1} \right|}{2\Delta x} , 2 \frac{\left| a_{i+1} - a_i \right|}{\Delta x}, 2 \frac{\left| a_i - a_{i-1} \right|}{\Delta x} \right] \textrm{sign} (a_{i+1}-a_{i-1}) & \xi > 0 \\
    0 & \textrm{otherwise}
    \end{array}
