@@ -143,7 +143,7 @@ public:
   ///
   /// invoke the boundary condition to update ghost cell
   ///
-  void fill_BCs_diff();
+  void fill_BCs_diff(bool x_update);
   
 
   ///

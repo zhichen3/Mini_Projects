@@ -6,8 +6,8 @@
 
 int main() {
 
-  int nx{128};
-  int ny{128};
+  int nx{64};
+  int ny{64};
   int ng{2};
   _2DGrid grid(nx,ny,ng);
   _2DArray tophat_state = tophat(grid.get_x(), grid.get_y());
@@ -37,12 +37,11 @@ int main() {
   
   double u{1.0};
   double v{0.5};
-  double C{0.5};
-  double tmax{0.2};
+  double C{0.3};
+  double num_periods{0.32};
 
-  Advection_solver split_centered(grid, u, v, C, tmax, gaussian, "split", "centered");
+  Advection_solver split_centered(grid, u, v, C, num_periods, gaussian, "split", "centered");
   split_centered.solve();
-
   
   
 }

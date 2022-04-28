@@ -38,10 +38,10 @@ private:
   double t;
 
   ///
-  /// Max time of integration
+  /// Number of periods for advection. If whole number is given, error between the initial and final state can be calculated.
   ///
-  double tmax;
-
+  double num_periods;
+  
   ///
   /// function for initial condition that takes in physical domain x and y and returns the initial advection state
   ///
@@ -56,6 +56,11 @@ private:
   /// slope method of choice
   ///
   std::string slope_method;
+  
+  ///
+  /// Max time of integration
+  ///
+  double tmax;
 
   ///
   /// timestep
@@ -76,13 +81,13 @@ private:
   double slope(const int j, const int i, const bool x_update);
   
 public:
-  Advection_solver (_2DGrid _grid, double _u, double _v, double _C, double _tmax, std::function<_2DArray(const std::vector<double>&, const std::vector<double>&)> _init_cond, const std::string& _method="split", const std::string& _slope_method="centered")
+  Advection_solver (_2DGrid _grid, double _u, double _v, double _C, double _num_periods, std::function<_2DArray(const std::vector<double>&, const std::vector<double>&)> _init_cond, const std::string& _method="split", const std::string& _slope_method="centered")
     : grid{_grid},
       u{_u},
       v{-_v},
       C{_C},
       t{0.0},
-      tmax{_tmax},
+      num_periods{_num_periods},
       init_cond{_init_cond},
       method{_method},
       slope_method{_slope_method}
@@ -92,7 +97,18 @@ public:
     
     assert(grid.ng > 1);
 
-    dt = _C/(_u/grid.dx + _v/grid.dy); 
+    double Tx = (grid.xmax - grid.xmin)/std::abs(_u);
+    double Ty = (grid.ymax - grid.ymin)/std::abs(_v);
+
+    if (Tx < Ty){
+      tmax = _num_periods * Ty;
+    }
+    else{
+      tmax = _num_periods * Tx;
+    }
+
+    
+    dt = _C/(std::abs(_u)/grid.dx + std::abs(_v)/grid.dy); 
     dt_init = dt;
   }
 

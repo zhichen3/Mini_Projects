@@ -6,25 +6,44 @@ import matplotlib.pyplot as plt
 import argparse
 import sys
 import numpy as np
+import matplotlib.animation as animation
 
 descrip = "script for plotting output data file from linear advection code for comparing initial and final state."
 data_help = "input data file containing the physical coordinate and state, the first column is the physical coordinate x, and the second column is the state info."
+animate_help = "To put all data files into a small movie. Used for runtime data animation."
 
 parser = argparse.ArgumentParser(description=descrip)
 parser.add_argument('data', nargs='+', help= data_help)
+parser.add_argument('--animate','-a', action="store_true", help= animate_help)
 
 # [1:] to exclude namespace of running the program, e.g. ./plot
-args = parser.parse_args(sys.argv[1:])
-
+#args = parser.parse_args(sys.argv[1:])
+args = parser.parse_args()
 fig = plt.figure(figsize=(7,7))
 ax = fig.add_subplot(111)
 
-for dataset in args.data:
-    data = np.loadtxt(dataset)
-    ax.plot(data[:,0], data[:,1], label = dataset)
+def animate(frame):
+    plt.clf()
+    ax = fig.add_subplot(111)
+    data = np.loadtxt(args.data[frame], skiprows = 1)
+    t = np.loadtxt(args.data[frame], max_rows=1)
+    ax.plot(data[:,0], data[:,1], label= "time =" + str(t))
+    ax.set_xlabel('X')
+    ax.set_ylabel('State')
+    ax.legend()
     
-ax.set_xlabel('X')
-ax.set_ylabel('State')
-ax.legend()
-#fig.savefig('figure.png')
-plt.show()
+if (args.animate) :
+    ani = animation.FuncAnimation(fig, animate, frames=len(args.data), interval= 5)
+    plt.show()
+else:
+    for dataset in args.data:
+        data = np.loadtxt(dataset, skiprows = 1)
+        ax.plot(data[:,0], data[:,1], label = dataset)
+    #    plt.pause(0.05)
+    ax.set_xlabel('X')
+    ax.set_ylabel('State')
+    ax.legend()
+    #fig.savefig('figure.png')
+    plt.show()
+
+    

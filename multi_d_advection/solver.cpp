@@ -12,7 +12,7 @@ void Advection_solver::solve(){
   grid.set_init(init_cond(grid.x, grid.y));
   t = 0.0;
   dt = dt_init;
-  C = dt*(u/grid.dx + v/grid.dy);
+  C = dt*(std::abs(u)/grid.dx + std::abs(v)/grid.dy);
 
   std::cout << "Integration starting, writing to file ..." << std::endl;
 
@@ -63,13 +63,13 @@ void Advection_solver::split(){
  
   bool x_update = true; 
   _2DArray temp_state = grid.scratch_array();
-  grid.fill_BCs_diff();
+  grid.fill_BCs_diff(x_update);
 
   
   while (t < tmax){
     if (t + dt > tmax){
       dt = tmax - t;
-      C = dt*(u/grid.dx+v/grid.dy);
+      C = dt*(std::abs(u)/grid.dx+std::abs(v)/grid.dy);
     }
     
     for (int k = 0; k < 2; ++k){
@@ -80,8 +80,9 @@ void Advection_solver::split(){
       }
       
       grid.state = temp_state;
-      grid.fill_BCs_diff();
+      grid.fill_BCs_diff(x_update);
       x_update = !x_update;
+
     }
     
     x_update = !x_update;
@@ -94,11 +95,10 @@ double Advection_solver:: rhs(const int j, const int i, const bool x_update){
   double rhs{};
   
   if (x_update){
-       rhs = -u/grid.dx*(riemann(j, i, x_update) - riemann(j, i-1, x_update) );
+    rhs = -u/grid.dx*(riemann(j, i, x_update) - riemann(j, i-1, x_update));
   }
   else{
-    rhs = -v/grid.dy *(riemann(j, i, x_update) - riemann(j-1, i, x_update) );
-    
+    rhs = -v/grid.dy*(riemann(j, i, x_update) - riemann(j-1, i, x_update));
   }
   
   return rhs;
@@ -127,7 +127,6 @@ double Advection_solver:: riemann(const int j, const int i, const bool x_update)
 
     else{
       res = grid.state(j+1,i) - 0.5*(grid.dy + v*dt)*slope(j+1, i, x_update);
-
     }
 
   }
