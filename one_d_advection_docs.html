@@ -131,12 +131,13 @@ span.prompt1:before {
 </ul>
 <p>There is a pre-wrritten <code class="docutils literal notranslate"><span class="pre">unit_test.cpp</span></code> that tests this mechanism and how to use the code. Simply run this file and plot all the output files. Or the following command</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span class="prompt1">make unit_test <span class="nv">DEBUG</span><span class="o">=</span>TRUE</span>
-<span class="prompt1"></span>
 <span class="prompt1">./unit_test</span>
-<span class="prompt1"></span>
 <span class="prompt1">./plot *dat</span>
-</pre></div></div><p>There is also a pre-written <code class="docutils literal notranslate"><span class="pre">runtime_test.cpp</span></code> used for testing runtime visualization.</p>
-</section>
+</pre></div></div><p>There is also a pre-written <code class="docutils literal notranslate"><span class="pre">runtime_test.cpp</span></code> used for testing runtime visualization. To run the <code class="docutils literal notranslate"><span class="pre">runtime_test.cpp</span></code> for test, use the following command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span class="prompt1">make runtime_test.cpp <span class="nv">DEBUG</span><span class="o">=</span>TRUE</span>
+<span class="prompt1">./runtime_test</span>
+<span class="prompt1">./plot runtime_data/* --animate</span>
+</pre></div></div></section>
 </section>
 
 
