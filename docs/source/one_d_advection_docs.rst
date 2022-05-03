@@ -44,9 +44,15 @@ There is a pre-wrritten ``unit_test.cpp`` that tests this mechanism and how to u
 .. prompt:: bash
 
    make unit_test DEBUG=TRUE
-
    ./unit_test
-
    ./plot *dat
 
-There is also a pre-written ``runtime_test.cpp`` used for testing runtime visualization.
+There is also a pre-written ``runtime_test.cpp`` used for testing runtime visualization. To run the ``runtime_test.cpp`` for test, use the following command:
+
+.. prompt:: bash
+
+   make runtime_test.cpp DEBUG=TRUE
+   ./runtime_test
+   ./plot runtime_data/* --animate
+
+  
